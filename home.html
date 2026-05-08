@@ -1,203 +1,217 @@
 <!DOCTYPE html>
 
-<html class="light" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>LA Science Fair</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script src="tailwind-config.js"></script>
-<link rel="stylesheet" href="styles.css"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Public+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>LA Science Fair</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="tailwind-config.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Public+Sans:wght@600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="components.js"></script>
 </head>
+
 <body class="bg-background text-on-background min-h-screen flex flex-col font-body-md">
-<!-- TopNavBar -->
-<header class="bg-surface dark:bg-surface-container-low w-full border-b border-outline-variant dark:border-outline z-50 sticky top-0">
-<div class="flex justify-between items-center h-20 w-full px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
-<div class="flex items-center gap-stack-lg">
-<a class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-fixed shrink-0" href="home.html">LA Science Fair</a>
-<nav class="hidden md:flex gap-stack-lg ml-stack-xl">
-<a class="font-label-md text-label-md text-primary dark:text-primary-fixed font-bold border-b-2 border-primary dark:border-primary-fixed pb-1 hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200" href="home.html">Home</a>
-<a class="font-label-md text-label-md text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200" href="deadlines.html">Schedule</a>
-<a class="font-label-md text-label-md text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200" href="news.html">News</a>
-<a class="font-label-md text-label-md text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200" href="students.html">Student Portal</a>
-<a class="font-label-md text-label-md text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200" href="judges.html">Judge Portal</a>
-</nav>
-</div>
-<div class="flex items-center gap-stack-md">
-<div class="hidden md:flex items-center border border-outline-variant rounded-full px-4 py-2 bg-surface">
-<span class="material-symbols-outlined text-outline mr-2 text-[20px]">search</span>
-<input class="bg-transparent border-none focus:ring-0 p-0 text-body-md font-body-md text-on-surface placeholder:text-outline w-32 focus:w-48 transition-all duration-300" placeholder="Search..." type="text"/>
-</div>
-<button class="font-label-md text-label-md text-on-primary bg-primary-container px-6 py-2.5 rounded hover:opacity-90 transition-opacity">Login</button>
-</div>
-</div>
-</header>
-<main class="flex-grow flex flex-col w-full">
-<!-- Latest News Ticker -->
-<div class="bg-surface-container-low border-b border-outline-variant py-2 w-full overflow-hidden">
-<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex items-center">
-<span class="font-label-md text-label-md text-primary-container mr-stack-md shrink-0 uppercase tracking-wider flex items-center gap-1">
-<span class="material-symbols-outlined text-[16px]">campaign</span> Latest News
+    <div id="site-header"></div>
+    <main class="flex-grow flex flex-col w-full">
+        <!-- Latest News Ticker -->
+        <div class="bg-surface-container-low border-b border-outline-variant py-2 w-full overflow-hidden">
+            <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex items-center">
+                <span
+                    class="font-label-md text-label-md text-primary-container mr-stack-md shrink-0 uppercase tracking-wider flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[16px]">campaign</span> Latest News
                 </span>
-<div class="flex gap-stack-xl whitespace-nowrap overflow-x-auto no-scrollbar scroll-smooth">
-<a class="font-body-md text-body-md text-on-surface hover:text-primary transition-colors flex items-center gap-2" href="#">
-<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                <div class="flex gap-stack-xl whitespace-nowrap overflow-x-auto no-scrollbar scroll-smooth">
+                    <a class="font-body-md text-body-md text-on-surface hover:text-primary transition-colors flex items-center gap-2"
+                        href="#">
+                        <span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
                         Registration for the 2025 Fair opens on October 15th.
                     </a>
-<a class="font-body-md text-body-md text-on-surface hover:text-primary transition-colors flex items-center gap-2" href="#">
-<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                    <a class="font-body-md text-body-md text-on-surface hover:text-primary transition-colors flex items-center gap-2"
+                        href="#">
+                        <span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
                         New Category Added: Artificial Intelligence &amp; Machine Learning.
                     </a>
-<a class="font-body-md text-body-md text-on-surface hover:text-primary transition-colors flex items-center gap-2" href="#">
-<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                    <a class="font-body-md text-body-md text-on-surface hover:text-primary transition-colors flex items-center gap-2"
+                        href="#">
+                        <span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
                         Judge orientation schedule updated for Fall 2024.
                     </a>
-</div>
-</div>
-</div>
-<!-- Hero Section -->
-<section class="w-full bg-surface relative overflow-hidden py-stack-xl md:py-[120px]">
-<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop relative z-10 grid grid-cols-1 md:grid-cols-2 gap-stack-xl items-center">
-<div class="flex flex-col gap-stack-md max-w-2xl">
-<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container border border-outline-variant w-max mb-stack-sm">
-<span class="w-2 h-2 rounded-full bg-primary-container"></span>
-<span class="font-label-md text-label-md text-on-surface">March 14-16, 2025</span>
-</div>
-<h1 class="font-headline-xl text-headline-xl md:text-[56px] text-primary leading-tight">
+                </div>
+            </div>
+        </div>
+        <!-- Hero Section -->
+        <section class="w-full bg-surface relative overflow-hidden py-stack-xl md:py-[120px]">
+            <div
+                class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop relative z-10 grid grid-cols-1 md:grid-cols-2 gap-stack-xl items-center">
+                <div class="flex flex-col gap-stack-md max-w-2xl">
+                    <div
+                        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container border border-outline-variant w-max mb-stack-sm">
+                        <span class="w-2 h-2 rounded-full bg-primary-container"></span>
+                        <span class="font-label-md text-label-md text-on-surface">March 14-16, 2025</span>
+                    </div>
+                    <h1 class="font-headline-xl text-headline-xl md:text-[56px] text-primary leading-tight">
                         Inspiring the Next Generation of Scientists
                     </h1>
-<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl mt-stack-sm">
-                        The Los Angeles County Science &amp; Engineering Fair provides a platform for middle and high school students to showcase innovative research and engineering projects. Join us in cultivating curiosity and academic excellence.
+                    <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl mt-stack-sm">
+                        The Los Angeles County Science &amp; Engineering Fair provides a platform for middle and high
+                        school students to showcase innovative research and engineering projects. Join us in cultivating
+                        curiosity and academic excellence.
                     </p>
-<div class="flex flex-col sm:flex-row gap-stack-sm mt-stack-lg">
-<button class="font-label-md text-label-md text-on-primary bg-primary-container px-8 py-4 rounded hover:opacity-90 transition-opacity flex items-center justify-center gap-2">
+                    <div class="flex flex-col sm:flex-row gap-stack-sm mt-stack-lg">
+                        <button
+                            class="font-label-md text-label-md text-on-primary bg-primary-container px-8 py-4 rounded hover:opacity-90 transition-opacity flex items-center justify-center gap-2">
                             Register a Project
                             <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
-</button>
-<button class="font-label-md text-label-md text-primary-container bg-transparent border border-primary-container px-8 py-4 rounded hover:bg-surface-container transition-colors flex items-center justify-center gap-2">
+                        </button>
+                        <button
+                            class="font-label-md text-label-md text-primary-container bg-transparent border border-primary-container px-8 py-4 rounded hover:bg-surface-container transition-colors flex items-center justify-center gap-2">
                             Volunteer to Judge
                         </button>
-</div>
-</div>
-<div class="relative h-[400px] md:h-[500px] rounded-xl overflow-hidden border border-outline-variant bg-surface-container-low hidden md:block">
-<div class="absolute inset-0 bg-cover bg-center" data-alt="A bright, modern laboratory setting focusing on scientific equipment. A high-school age student in a white lab coat is carefully adjusting a microscope. The lighting is crisp, cool, and professional, emphasizing a clean, academic environment. Deep blue accents on the equipment tie into the modern corporate aesthetic. The mood is focused and intellectual, capturing the essence of scientific discovery." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBzF0qpq7JaXYJJqlcfv214ZReY8jmmSEUZ3o8wol6Ms9LMHPmh4unYb2sNi214AzUGYRGcU2ymFZDSQAliBAN3-cPhbttoVgNR4Kovh0GmL0lQ1j_37MM0H42DFJeFvwbeCR4Tk4Mxg8RW9i4zoQkvaG_ZKLhwHLvyFC7MXGc_OLh4HcYLyNTenKIdqGoiI6efNXB4q82UtOnvLX0-Dv10XqLz_RZhDdqhehdZyPgpgw6gciKwkFC4a039Z6YzfPkMgA3PRJI6nIzV');"></div>
-</div>
-</div>
-</section>
-<!-- Stats Section -->
-<section class="w-full bg-surface py-stack-lg border-y border-outline-variant">
-<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-<div class="grid grid-cols-2 md:grid-cols-4 gap-gutter divide-x divide-outline-variant">
-<div class="flex flex-col items-center justify-center text-center px-4">
-<span class="font-headline-lg text-headline-lg text-primary-container">800+</span>
-<span class="font-label-md text-label-md text-secondary mt-1">Student Participants</span>
-</div>
-<div class="flex flex-col items-center justify-center text-center px-4">
-<span class="font-headline-lg text-headline-lg text-primary-container">150+</span>
-<span class="font-label-md text-label-md text-secondary mt-1">Schools Involved</span>
-</div>
-<div class="flex flex-col items-center justify-center text-center px-4">
-<span class="font-headline-lg text-headline-lg text-primary-container">35</span>
-<span class="font-label-md text-label-md text-secondary mt-1">Scientific Categories</span>
-</div>
-<div class="flex flex-col items-center justify-center text-center px-4">
-<span class="font-headline-lg text-headline-lg text-primary-container">$50k</span>
-<span class="font-label-md text-label-md text-secondary mt-1">In Awards &amp; Scholarships</span>
-</div>
-</div>
-</div>
-</section>
-<!-- Timeline Section -->
-<section class="w-full bg-background py-stack-xl">
-<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-<div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-stack-lg">
-<div>
-<h2 class="font-headline-lg text-headline-lg text-primary mb-2">2025 Fair Timeline</h2>
-<p class="font-body-md text-body-md text-on-surface-variant">Important deadlines for students and educators.</p>
-</div>
-<a class="font-label-md text-label-md text-primary-container flex items-center gap-1 hover:underline mt-4 md:mt-0" href="deadlines.html">
+                    </div>
+                </div>
+                <div
+                    class="relative h-[400px] md:h-[500px] rounded-xl overflow-hidden border border-outline-variant bg-surface-container-low hidden md:block">
+                    <div class="absolute inset-0 bg-cover bg-center"
+                        data-alt="A bright, modern laboratory setting focusing on scientific equipment. A high-school age student in a white lab coat is carefully adjusting a microscope. The lighting is crisp, cool, and professional, emphasizing a clean, academic environment. Deep blue accents on the equipment tie into the modern corporate aesthetic. The mood is focused and intellectual, capturing the essence of scientific discovery."
+                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBzF0qpq7JaXYJJqlcfv214ZReY8jmmSEUZ3o8wol6Ms9LMHPmh4unYb2sNi214AzUGYRGcU2ymFZDSQAliBAN3-cPhbttoVgNR4Kovh0GmL0lQ1j_37MM0H42DFJeFvwbeCR4Tk4Mxg8RW9i4zoQkvaG_ZKLhwHLvyFC7MXGc_OLh4HcYLyNTenKIdqGoiI6efNXB4q82UtOnvLX0-Dv10XqLz_RZhDdqhehdZyPgpgw6gciKwkFC4a039Z6YzfPkMgA3PRJI6nIzV');">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Stats Section -->
+        <section class="w-full bg-surface py-stack-lg border-y border-outline-variant">
+            <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-gutter divide-x divide-outline-variant">
+                    <div class="flex flex-col items-center justify-center text-center px-4">
+                        <span class="font-headline-lg text-headline-lg text-primary-container">800+</span>
+                        <span class="font-label-md text-label-md text-secondary mt-1">Student Participants</span>
+                    </div>
+                    <div class="flex flex-col items-center justify-center text-center px-4">
+                        <span class="font-headline-lg text-headline-lg text-primary-container">150+</span>
+                        <span class="font-label-md text-label-md text-secondary mt-1">Schools Involved</span>
+                    </div>
+                    <div class="flex flex-col items-center justify-center text-center px-4">
+                        <span class="font-headline-lg text-headline-lg text-primary-container">35</span>
+                        <span class="font-label-md text-label-md text-secondary mt-1">Scientific Categories</span>
+                    </div>
+                    <div class="flex flex-col items-center justify-center text-center px-4">
+                        <span class="font-headline-lg text-headline-lg text-primary-container">$50k</span>
+                        <span class="font-label-md text-label-md text-secondary mt-1">In Awards &amp;
+                            Scholarships</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Timeline Section -->
+        <section class="w-full bg-background py-stack-xl">
+            <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-stack-lg">
+                    <div>
+                        <h2 class="font-headline-lg text-headline-lg text-primary mb-2">2025 Fair Timeline</h2>
+                        <p class="font-body-md text-body-md text-on-surface-variant">Important deadlines for students
+                            and educators.</p>
+                    </div>
+                    <a class="font-label-md text-label-md text-primary-container flex items-center gap-1 hover:underline mt-4 md:mt-0"
+                        href="deadlines.html">
                         View Full Schedule <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
-</a>
-</div>
-<div class="relative pl-8 md:pl-0">
-<!-- Vertical Line for Mobile -->
-<div class="absolute left-[15px] top-4 bottom-4 w-[2px] bg-secondary-container md:hidden"></div>
-<div class="grid grid-cols-1 md:grid-cols-4 gap-stack-lg relative">
-<!-- Horizontal Line for Desktop -->
-<div class="hidden md:block absolute top-[15px] left-8 right-8 h-[2px] bg-secondary-container z-0"></div>
-<!-- Timeline Item 1 (Completed/Past) -->
-<div class="relative z-10 flex flex-col gap-4">
-<div class="absolute -left-[33px] md:static md:w-full flex md:justify-center">
-<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center border-4 border-background shrink-0">
-<span class="material-symbols-outlined text-on-primary text-[16px]" style="font-variation-settings: 'FILL' 1;">check</span>
-</div>
-</div>
-<div class="bg-surface border border-outline-variant rounded p-stack-md md:text-center md:mt-4 relative group hover:border-primary transition-colors">
-<span class="font-label-md text-label-md text-primary-container block mb-1">Oct 15, 2024</span>
-<h3 class="font-headline-md text-[18px] text-on-surface font-semibold mb-2">Registration Opens</h3>
-<p class="font-body-md text-[14px] text-on-surface-variant">Student and project registration begins online.</p>
-</div>
-</div>
-<!-- Timeline Item 2 (Active/Current) -->
-<div class="relative z-10 flex flex-col gap-4">
-<div class="absolute -left-[33px] md:static md:w-full flex md:justify-center">
-<div class="w-8 h-8 rounded-full bg-surface border-2 border-primary-container flex items-center justify-center shrink-0">
-<div class="w-2.5 h-2.5 rounded-full bg-primary-container"></div>
-</div>
-</div>
-<div class="bg-surface border-2 border-primary-container rounded p-stack-md md:text-center md:mt-4 shadow-[0px_4px_20px_rgba(0,51,102,0.05)]">
-<span class="font-label-md text-label-md text-primary-container block mb-1">Jan 20, 2025</span>
-<h3 class="font-headline-md text-[18px] text-on-surface font-semibold mb-2">Project Submission</h3>
-<p class="font-body-md text-[14px] text-on-surface-variant">Final deadline for all digital project materials.</p>
-</div>
-</div>
-<!-- Timeline Item 3 (Upcoming) -->
-<div class="relative z-10 flex flex-col gap-4">
-<div class="absolute -left-[33px] md:static md:w-full flex md:justify-center">
-<div class="w-8 h-8 rounded-full bg-surface border-2 border-outline-variant flex items-center justify-center shrink-0">
-</div>
-</div>
-<div class="bg-surface border border-outline-variant rounded p-stack-md md:text-center md:mt-4 opacity-70 group hover:opacity-100 transition-opacity">
-<span class="font-label-md text-label-md text-secondary block mb-1">Feb 10, 2025</span>
-<h3 class="font-headline-md text-[18px] text-on-surface font-semibold mb-2">Judge Assignments</h3>
-<p class="font-body-md text-[14px] text-on-surface-variant">Judges receive preliminary project access.</p>
-</div>
-</div>
-<!-- Timeline Item 4 (Upcoming) -->
-<div class="relative z-10 flex flex-col gap-4">
-<div class="absolute -left-[33px] md:static md:w-full flex md:justify-center">
-<div class="w-8 h-8 rounded-full bg-surface border-2 border-outline-variant flex items-center justify-center shrink-0">
-</div>
-</div>
-<div class="bg-surface border border-outline-variant rounded p-stack-md md:text-center md:mt-4 opacity-70 group hover:opacity-100 transition-opacity">
-<span class="font-label-md text-label-md text-secondary block mb-1">Mar 14, 2025</span>
-<h3 class="font-headline-md text-[18px] text-on-surface font-semibold mb-2">Fair Day 1</h3>
-<p class="font-body-md text-[14px] text-on-surface-variant">Setup, safety checks, and preliminary judging.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-</main>
-<!-- Footer -->
-<footer class="bg-surface-container dark:bg-surface-container-highest w-full bottom-0 border-t border-outline-variant dark:border-outline mt-auto">
-<div class="flex flex-col md:flex-row justify-between items-center py-stack-lg px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto gap-stack-md">
-<span class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-fixed">LA Science Fair</span>
-<nav class="flex flex-wrap justify-center gap-x-stack-lg gap-y-stack-sm">
-<a class="font-body-md text-body-md text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed hover:underline transition-all duration-200 focus:outline-2 focus:outline-primary" href="#">Contact Us</a>
-<a class="font-body-md text-body-md text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed hover:underline transition-all duration-200 focus:outline-2 focus:outline-primary" href="#">Privacy Policy</a>
-<a class="font-body-md text-body-md text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed hover:underline transition-all duration-200 focus:outline-2 focus:outline-primary" href="#">Sponsors</a>
-<a class="font-body-md text-body-md text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed hover:underline transition-all duration-200 focus:outline-2 focus:outline-primary" href="#">About</a>
-<a class="font-body-md text-body-md text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed hover:underline transition-all duration-200 focus:outline-2 focus:outline-primary" href="#">Terms of Service</a>
-</nav>
-<span class="font-body-md text-body-md text-secondary dark:text-secondary-fixed-dim text-center md:text-right text-[14px]">
-                © 2024 Los Angeles County Science &amp; Engineering Fair. All rights reserved.
-            </span>
-</div>
-</footer>
-</body></html>
+                    </a>
+                </div>
+                <div class="relative pl-8 md:pl-0">
+                    <!-- Vertical Line for Mobile -->
+                    <div class="absolute left-[15px] top-4 bottom-4 w-[2px] bg-secondary-container md:hidden"></div>
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-stack-lg relative">
+                        <!-- Horizontal Line for Desktop -->
+                        <div
+                            class="hidden md:block absolute top-[15px] left-8 right-8 h-[2px] bg-secondary-container z-0">
+                        </div>
+                        <!-- Timeline Item 1 (Completed/Past) -->
+                        <div class="relative z-10 flex flex-col gap-4">
+                            <div class="absolute -left-[33px] md:static md:w-full flex md:justify-center">
+                                <div
+                                    class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center border-4 border-background shrink-0">
+                                    <span class="material-symbols-outlined text-on-primary text-[16px]"
+                                        style="font-variation-settings: 'FILL' 1;">check</span>
+                                </div>
+                            </div>
+                            <div
+                                class="bg-surface border border-outline-variant rounded p-stack-md md:text-center md:mt-4 relative group hover:border-primary transition-colors">
+                                <span class="font-label-md text-label-md text-primary-container block mb-1">Oct 15,
+                                    2024</span>
+                                <h3 class="font-headline-md text-[18px] text-on-surface font-semibold mb-2">Registration
+                                    Opens</h3>
+                                <p class="font-body-md text-[14px] text-on-surface-variant">Student and project
+                                    registration begins online.</p>
+                            </div>
+                        </div>
+                        <!-- Timeline Item 2 (Active/Current) -->
+                        <div class="relative z-10 flex flex-col gap-4">
+                            <div class="absolute -left-[33px] md:static md:w-full flex md:justify-center">
+                                <div
+                                    class="w-8 h-8 rounded-full bg-surface border-2 border-primary-container flex items-center justify-center shrink-0">
+                                    <div class="w-2.5 h-2.5 rounded-full bg-primary-container"></div>
+                                </div>
+                            </div>
+                            <div
+                                class="bg-surface border-2 border-primary-container rounded p-stack-md md:text-center md:mt-4 shadow-[0px_4px_20px_rgba(0,51,102,0.05)]">
+                                <span class="font-label-md text-label-md text-primary-container block mb-1">Jan 20,
+                                    2025</span>
+                                <h3 class="font-headline-md text-[18px] text-on-surface font-semibold mb-2">Project
+                                    Submission</h3>
+                                <p class="font-body-md text-[14px] text-on-surface-variant">Final deadline for all
+                                    digital project materials.</p>
+                            </div>
+                        </div>
+                        <!-- Timeline Item 3 (Upcoming) -->
+                        <div class="relative z-10 flex flex-col gap-4">
+                            <div class="absolute -left-[33px] md:static md:w-full flex md:justify-center">
+                                <div
+                                    class="w-8 h-8 rounded-full bg-surface border-2 border-outline-variant flex items-center justify-center shrink-0">
+                                </div>
+                            </div>
+                            <div
+                                class="bg-surface border border-outline-variant rounded p-stack-md md:text-center md:mt-4 opacity-70 group hover:opacity-100 transition-opacity">
+                                <span class="font-label-md text-label-md text-secondary block mb-1">Feb 10, 2025</span>
+                                <h3 class="font-headline-md text-[18px] text-on-surface font-semibold mb-2">Judge
+                                    Assignments</h3>
+                                <p class="font-body-md text-[14px] text-on-surface-variant">Judges receive preliminary
+                                    project access.</p>
+                            </div>
+                        </div>
+                        <!-- Timeline Item 4 (Upcoming) -->
+                        <div class="relative z-10 flex flex-col gap-4">
+                            <div class="absolute -left-[33px] md:static md:w-full flex md:justify-center">
+                                <div
+                                    class="w-8 h-8 rounded-full bg-surface border-2 border-outline-variant flex items-center justify-center shrink-0">
+                                </div>
+                            </div>
+                            <div
+                                class="bg-surface border border-outline-variant rounded p-stack-md md:text-center md:mt-4 opacity-70 group hover:opacity-100 transition-opacity">
+                                <span class="font-label-md text-label-md text-secondary block mb-1">Mar 14, 2025</span>
+                                <h3 class="font-headline-md text-[18px] text-on-surface font-semibold mb-2">Fair Day 1
+                                </h3>
+                                <p class="font-body-md text-[14px] text-on-surface-variant">Setup, safety checks, and
+                                    preliminary judging.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div id="site-footer"></div>
+</body>
+
+</html>
