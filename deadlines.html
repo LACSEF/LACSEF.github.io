@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Deadlines &amp; Schedule - LA Science Fair</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Public+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="tailwind-config.js"></script>
+<link rel="stylesheet" href="styles.css"/>
+<!-- Tailwind Config from Brand Anchors -->
+</head>
+<body class="bg-background text-on-background antialiased min-h-screen flex flex-col">
+<!-- Shared Component: TopNavBar -->
+<header class="bg-surface border-b border-outline-variant w-full top-0 z-50 sticky">
+<div class="flex justify-between items-center h-20 w-full px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<!-- Brand Logo -->
+<a class="text-headline-md font-headline-md font-bold text-primary flex items-center gap-unit shrink-0" href="home.html">
+<span aria-hidden="true" class="material-symbols-outlined text-primary-container text-[28px] filled">science</span>
+                LA Science Fair
+            </a>
+<!-- Navigation Links (Hidden on Mobile, flex on MD) -->
+<nav class="hidden md:flex items-center gap-gutter h-full">
+<a class="font-label-md text-label-md text-secondary hover:text-primary transition-colors duration-200 h-full flex items-center" href="home.html">Home</a>
+<!-- Active State Applied Here -->
+<a class="font-label-md text-label-md text-primary font-bold border-b-2 border-primary pb-1 h-full flex items-center opacity-80 transition-all" href="deadlines.html">Schedule</a>
+<a class="font-label-md text-label-md text-secondary hover:text-primary transition-colors duration-200 h-full flex items-center" href="news.html">News</a>
+<a class="font-label-md text-label-md text-secondary hover:text-primary transition-colors duration-200 h-full flex items-center" href="students.html">Student Portal</a>
+<a class="font-label-md text-label-md text-secondary hover:text-primary transition-colors duration-200 h-full flex items-center" href="judges.html">Judge Portal</a>
+</nav>
+<!-- Trailing Secondary Action -->
+<div class="flex items-center gap-stack-md shrink-0">
+<button class="font-label-md text-label-md px-stack-md py-stack-sm border border-primary-container text-primary-container rounded hover:bg-surface-variant transition-colors duration-200">
+                    Login
+                </button>
+<!-- Mobile Menu Toggle (Decorative) -->
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-stack-xl flex flex-col gap-stack-xl">
+<!-- Hero Section -->
+<section class="flex flex-col md:flex-row gap-gutter items-start md:items-center w-full">
+<div class="flex-1 flex flex-col gap-stack-md">
+<h1 class="font-headline-xl text-headline-xl text-primary">Deadlines &amp; Schedule</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                    Stay on track for the Los Angeles County Science &amp; Engineering Fair. Review all critical academic deadlines, safety review periods, and the official fair day itinerary below.
+                </p>
+<div class="flex gap-stack-md mt-stack-sm">
+<button class="bg-primary-container text-on-tertiary font-label-md text-label-md px-stack-lg py-3 rounded flex items-center gap-unit hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-[18px]">calendar_add_on</span>
+                        Add to Calendar
+                    </button>
+<button class="border border-outline-variant text-primary font-label-md text-label-md px-stack-lg py-3 rounded flex items-center gap-unit hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[18px]">download</span>
+                        PDF Schedule
+                    </button>
+</div>
+</div>
+<!-- Hero Decorative Image Container -->
+<div class="hidden md:block w-1/3 aspect-video bg-surface-container rounded-lg border border-outline-variant overflow-hidden relative">
+<img alt="Abstract academic calendar visualization" class="w-full h-full object-cover object-center opacity-90 mix-blend-multiply grayscale hover:grayscale-0 transition-all duration-500" data-alt="A macro photograph of an intricate brass astrolabe mechanism resting on a pristine white marble desk, illuminated by cool, highly focused studio lighting. The scene employs a strict palette of deep navy blue shadows and crisp white highlights, reflecting an authoritative and intellectual aesthetic. The composition is asymmetrical, leaving generous white space to the right, emphasizing modern academic precision." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDc9zDGh6Tt5oawZMPLBqyaAho-M27tpI0WxaMy73uAqC5dnI_kjQ5s-OYb6cpjJCcFJ_Jz4LmynNfLbS-D8w58FkzY2ZN8K6v_bNLm14MX9ySMdQEEAUmQTYN6HcwX3RmBNij8u9nwOMbroJaj6uemmADJkzeQY_FzmQkDWaJ3ZW0AlYummkh5RWOVlrOzr-_19QbWxVEEy-V2RzS9lc8Zao6r5k2pcCjxYc0PpNMcFldKo1MOMGXs_FZKWJNCcZAAoLMUxco3Kr-I"/>
+<div class="absolute inset-0 bg-primary-container/10"></div>
+</div>
+</section>
+<!-- Bento Grid Layout for Schedules -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-gutter w-full">
+<!-- Left Column: Primary Timeline (col-span-4) -->
+<div class="lg:col-span-4 flex flex-col gap-stack-lg bg-surface border border-outline-variant rounded-lg p-stack-lg">
+<div class="flex items-center gap-unit border-b border-outline-variant pb-stack-md">
+<span class="material-symbols-outlined text-primary-container">flag</span>
+<h2 class="font-headline-lg text-headline-md text-primary">Master Timeline</h2>
+</div>
+<!-- Structured Timeline Component -->
+<div class="relative pl-6 mt-unit space-y-stack-lg before:absolute before:inset-0 before:ml-[11px] before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-[2px] before:bg-surface-variant">
+<!-- Completed Milestone -->
+<div class="relative flex items-start group">
+<div class="absolute left-0 -ml-[25px] flex h-5 w-5 items-center justify-center">
+<div class="h-3 w-3 rounded-full bg-primary-container shadow-[0_0_0_4px_#fbf9f8]"></div>
+</div>
+<div class="flex flex-col gap-unit">
+<span class="font-label-md text-label-md text-primary-container uppercase tracking-wider">Oct 15, 2023</span>
+<h3 class="font-headline-md text-[18px] text-primary">Registration Opens</h3>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Online portal opens for student project submissions and initial abstract reviews.</p>
+</div>
+</div>
+<!-- Completed Milestone -->
+<div class="relative flex items-start group">
+<div class="absolute left-0 -ml-[25px] flex h-5 w-5 items-center justify-center">
+<div class="h-3 w-3 rounded-full bg-primary-container shadow-[0_0_0_4px_#fbf9f8]"></div>
+</div>
+<div class="flex flex-col gap-unit">
+<span class="font-label-md text-label-md text-primary-container uppercase tracking-wider">Dec 01, 2023</span>
+<h3 class="font-headline-md text-[18px] text-primary">SRC/IRB Pre-Approval</h3>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Deadline for projects involving human subjects, vertebrate animals, or hazardous agents.</p>
+</div>
+</div>
+<!-- Active/Upcoming Milestone -->
+<div class="relative flex items-start group">
+<div class="absolute left-0 -ml-[25px] flex h-5 w-5 items-center justify-center">
+<div class="h-4 w-4 rounded-full border-[3px] border-primary-container bg-surface shadow-[0_0_0_4px_#fbf9f8]"></div>
+</div>
+<div class="flex flex-col gap-unit">
+<span class="font-label-md text-label-md text-primary uppercase tracking-wider font-bold">Feb 15, 2024</span>
+<h3 class="font-headline-md text-[18px] text-primary">Final Project Submission</h3>
+<span class="inline-block bg-error-container text-on-error-container font-label-md text-[11px] px-2 py-1 rounded w-max mt-1">UPCOMING DEADLINE</span>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm mt-1">All final research papers, digital display boards, and signed forms must be uploaded.</p>
+</div>
+</div>
+<!-- Future Milestone -->
+<div class="relative flex items-start group">
+<div class="absolute left-0 -ml-[25px] flex h-5 w-5 items-center justify-center">
+<div class="h-3 w-3 rounded-full border-2 border-outline bg-surface shadow-[0_0_0_4px_#fbf9f8]"></div>
+</div>
+<div class="flex flex-col gap-unit opacity-70">
+<span class="font-label-md text-label-md text-secondary uppercase tracking-wider">Mar 22 - 23, 2024</span>
+<h3 class="font-headline-md text-[18px] text-primary">LA Science Fair Day</h3>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">In-person judging, public viewing, and awards ceremony.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Detailed Breakdowns (col-span-8) -->
+<div class="lg:col-span-8 flex flex-col gap-gutter">
+<!-- Bento Box 1: Registration Details -->
+<div class="bg-surface border border-outline-variant rounded-lg p-stack-lg flex flex-col gap-stack-md">
+<div class="flex justify-between items-end border-b border-outline-variant pb-stack-sm">
+<h2 class="font-headline-lg text-[24px] text-primary">Registration Phases</h2>
+<span class="material-symbols-outlined text-secondary">app_registration</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-stack-md mt-unit">
+<!-- Phase Card -->
+<div class="border border-outline-variant rounded p-stack-md bg-surface-container-lowest flex flex-col gap-unit hover:border-primary-container transition-colors">
+<div class="flex justify-between items-center w-full">
+<span class="font-label-md text-label-md text-on-surface-variant">Early Bird</span>
+<span class="font-label-md text-[12px] bg-secondary-container text-primary-container px-2 py-0.5 rounded">Closed</span>
+</div>
+<span class="font-headline-md text-[18px] text-primary">Oct 15 - Nov 30</span>
+<p class="font-body-md text-sm text-secondary mt-auto pt-stack-sm border-t border-outline-variant/50">Fee: $35 per student. Priority abstract review included.</p>
+</div>
+<!-- Phase Card -->
+<div class="border-[2px] border-primary-container rounded p-stack-md bg-surface-container-lowest flex flex-col gap-unit relative shadow-[0_4px_20px_rgba(0,51,102,0.05)]">
+<div class="absolute top-0 right-0 bg-primary-container text-on-tertiary font-label-md text-[10px] uppercase px-2 py-1 rounded-bl">Current Phase</div>
+<div class="flex justify-between items-center w-full pt-1">
+<span class="font-label-md text-label-md text-on-surface-variant">Standard Registration</span>
+</div>
+<span class="font-headline-md text-[18px] text-primary">Dec 01 - Jan 31</span>
+<p class="font-body-md text-sm text-secondary mt-auto pt-stack-sm border-t border-outline-variant/50">Fee: $50 per student. All standard safety forms required.</p>
+</div>
+<!-- Phase Card -->
+<div class="border border-outline-variant rounded p-stack-md bg-surface-container-lowest flex flex-col gap-unit hover:border-primary-container transition-colors opacity-80">
+<div class="flex justify-between items-center w-full">
+<span class="font-label-md text-label-md text-on-surface-variant">Late Submission</span>
+</div>
+<span class="font-headline-md text-[18px] text-primary">Feb 01 - Feb 15</span>
+<p class="font-body-md text-sm text-secondary mt-auto pt-stack-sm border-t border-outline-variant/50">Fee: $75 per student. Subject to availability and strict review.</p>
+</div>
+</div>
+</div>
+<!-- Bento Box 2: Fair Day Itinerary -->
+<div class="bg-surface border border-outline-variant rounded-lg flex flex-col">
+<div class="p-stack-lg border-b border-outline-variant flex justify-between items-center bg-surface-container-low rounded-t-lg">
+<div>
+<h2 class="font-headline-lg text-[24px] text-primary">Fair Day Itinerary</h2>
+<p class="font-body-md text-sm text-secondary mt-1">Friday, March 22nd - Shrine Expo Hall</p>
+</div>
+<span class="material-symbols-outlined text-primary-container text-[32px]">schedule</span>
+</div>
+<div class="flex flex-col">
+<!-- Itinerary Row -->
+<div class="flex flex-col sm:flex-row border-b border-outline-variant/50 hover:bg-surface-container-lowest transition-colors p-stack-md gap-stack-md sm:gap-gutter items-start sm:items-center">
+<div class="w-32 shrink-0">
+<span class="font-label-md text-label-md text-primary-container">07:30 AM</span>
+</div>
+<div class="flex flex-col">
+<h4 class="font-headline-md text-[16px] text-primary">Student Check-in &amp; Setup</h4>
+<span class="font-body-md text-sm text-secondary">Main Hall Entrance. ID required.</span>
+</div>
+</div>
+<!-- Itinerary Row -->
+<div class="flex flex-col sm:flex-row border-b border-outline-variant/50 hover:bg-surface-container-lowest transition-colors p-stack-md gap-stack-md sm:gap-gutter items-start sm:items-center">
+<div class="w-32 shrink-0">
+<span class="font-label-md text-label-md text-primary-container">09:00 AM</span>
+</div>
+<div class="flex flex-col">
+<h4 class="font-headline-md text-[16px] text-primary">Safety Verification Closes</h4>
+<span class="font-body-md text-sm text-secondary">All projects must pass final display and safety checks.</span>
+</div>
+<div class="mt-2 sm:mt-0 sm:ml-auto">
+<span class="inline-block bg-secondary-container text-on-secondary-container font-label-md text-[12px] px-2 py-1 rounded">Mandatory</span>
+</div>
+</div>
+<!-- Itinerary Row -->
+<div class="flex flex-col sm:flex-row border-b border-outline-variant/50 hover:bg-surface-container-lowest transition-colors p-stack-md gap-stack-md sm:gap-gutter items-start sm:items-center bg-primary-container/5 border-l-4 border-l-primary-container">
+<div class="w-32 shrink-0">
+<span class="font-label-md text-label-md text-primary-container">10:00 AM</span>
+</div>
+<div class="flex flex-col">
+<h4 class="font-headline-md text-[16px] text-primary">Official Judging Commences</h4>
+<span class="font-body-md text-sm text-secondary">Students must remain at their exhibits. No parents allowed on floor.</span>
+</div>
+</div>
+<!-- Itinerary Row -->
+<div class="flex flex-col sm:flex-row hover:bg-surface-container-lowest transition-colors p-stack-md gap-stack-md sm:gap-gutter items-start sm:items-center">
+<div class="w-32 shrink-0">
+<span class="font-label-md text-label-md text-primary-container">12:30 PM</span>
+</div>
+<div class="flex flex-col">
+<h4 class="font-headline-md text-[16px] text-primary">Lunch Break</h4>
+<span class="font-body-md text-sm text-secondary">Cafeteria and external food trucks available.</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Shared Component: Footer -->
+<footer class="bg-surface-container border-t border-outline-variant w-full mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-center py-stack-lg px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto gap-stack-md md:gap-0">
+<p class="font-body-md text-body-md text-primary text-center md:text-left">
+                © 2024 Los Angeles County Science &amp; Engineering Fair. All rights reserved.
+            </p>
+<nav class="flex flex-wrap justify-center md:justify-end gap-stack-md">
+<a class="font-body-md text-body-md text-secondary hover:text-primary hover:underline transition-all duration-200 outline-2 outline-primary" href="#">Contact Us</a>
+<a class="font-body-md text-body-md text-secondary hover:text-primary hover:underline transition-all duration-200 outline-2 outline-primary" href="#">Privacy Policy</a>
+<a class="font-body-md text-body-md text-secondary hover:text-primary hover:underline transition-all duration-200 outline-2 outline-primary" href="#">Sponsors</a>
+<a class="font-body-md text-body-md text-secondary hover:text-primary hover:underline transition-all duration-200 outline-2 outline-primary" href="#">About</a>
+<a class="font-body-md text-body-md text-secondary hover:text-primary hover:underline transition-all duration-200 outline-2 outline-primary" href="#">Terms of Service</a>
+</nav>
+</div>
+</footer>
+</body></html>
