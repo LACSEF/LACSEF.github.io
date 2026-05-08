@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>LA Science Fair</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries,typography"></script>
     <script src="tailwind-config.js"></script>
     <link rel="stylesheet" href="styles.css" />
     <link
@@ -21,6 +21,7 @@
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
         rel="stylesheet" />
     <script src="components.js"></script>
+    <script src="news-feed.js"></script>
 </head>
 
 <body class="bg-background text-on-background min-h-screen flex flex-col font-body-md">
@@ -33,23 +34,7 @@
                     class="font-label-md text-label-md text-primary-container mr-stack-md shrink-0 uppercase tracking-wider flex items-center gap-1">
                     <span class="material-symbols-outlined text-[16px]">campaign</span> Latest News
                 </span>
-                <div class="flex gap-stack-xl whitespace-nowrap overflow-x-auto no-scrollbar scroll-smooth">
-                    <a class="font-body-md text-body-md text-on-surface hover:text-primary transition-colors flex items-center gap-2"
-                        href="#">
-                        <span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
-                        Registration for the 2025 Fair opens on October 15th.
-                    </a>
-                    <a class="font-body-md text-body-md text-on-surface hover:text-primary transition-colors flex items-center gap-2"
-                        href="#">
-                        <span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
-                        New Category Added: Artificial Intelligence &amp; Machine Learning.
-                    </a>
-                    <a class="font-body-md text-body-md text-on-surface hover:text-primary transition-colors flex items-center gap-2"
-                        href="#">
-                        <span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
-                        Judge orientation schedule updated for Fall 2024.
-                    </a>
-                </div>
+                <div id="news-ticker" class="flex gap-stack-xl whitespace-nowrap overflow-x-auto no-scrollbar scroll-smooth"></div>
             </div>
         </div>
         <!-- Hero Section -->

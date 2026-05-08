@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>News &amp; Updates - LA Science Fair</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries,typography"></script>
     <script src="tailwind-config.js"></script>
     <link rel="stylesheet" href="styles.css" />
     <link href="https://fonts.googleapis.com" rel="preconnect" />
@@ -21,6 +21,7 @@
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
         rel="stylesheet" />
     <script src="components.js"></script>
+    <script src="news-feed.js"></script>
 </head>
 
 <body class="bg-background text-on-background min-h-screen flex flex-col font-body-md text-body-md">
@@ -33,14 +34,6 @@
             <p class="text-body-lg font-body-lg text-secondary max-w-3xl">Stay informed with the latest announcements,
                 crucial deadlines, and inspiring success stories from the Los Angeles County Science &amp; Engineering
                 Fair community.</p>
-            <!-- Mobile Search (Visible only on small screens) -->
-            <div class="relative md:hidden w-full mt-stack-md">
-                <span
-                    class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
-                <input
-                    class="w-full pl-10 pr-4 py-3 bg-surface border border-outline-variant rounded-lg text-body-md font-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
-                    placeholder="Search news..." type="text" />
-            </div>
         </header>
         <!-- Layout Grid: Sidebar + Feed -->
         <div class="flex flex-col md:flex-row gap-stack-xl">
@@ -115,139 +108,8 @@
             </aside>
             <!-- Main Feed -->
             <div class="flex-grow flex flex-col space-y-stack-lg">
-                <!-- Featured Article (Bento-style layout) -->
-                <article
-                    class="group relative bg-surface border border-outline-variant rounded-xl overflow-hidden flex flex-col md:flex-row hover:border-primary transition-colors duration-300">
-                    <div class="w-full md:w-2/5 h-64 md:h-auto relative bg-surface-container-low">
-                        <!-- Placeholder for Image -->
-                        <div
-                            class="absolute inset-0 bg-gradient-to-br from-primary-container to-tertiary-container opacity-90 mix-blend-multiply">
-                        </div>
-                        <img alt="Featured Article Image" class="w-full h-full object-cover"
-                            data-alt="A brightly lit, modern laboratory setting where a diverse group of high school students are examining chemical reactions in beakers. The scene is professional and academic, illuminated by cool, crisp white lighting that enhances the deep blue and gray corporate aesthetic of the LA Science Fair brand. The mood is focused, intellectual, and inspiring, capturing the essence of scientific discovery without childish tropes."
-                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_G_r4lk6uB0i8Hgv5XEsoS8_3ItgweIMCJ8CAhrBTF-PWlzmZekiWiHM49VpSUT_knl0vVabVjXV9eejlm1T8i2DKEMTaim7HFy1OcN5LMo5mtote1RgsXT1EH86gcUGre-wKkLS1YUpgeWUo5U3MDzxBygWJEBcMnBtRpBC0SRUVy_M7qAY8eU70bU8CYE_z5D5StPr-MQp5G4vWD7yUfxVP4nGs0MMEpJ1D8ScmS34TwXMHl5ZSRJEXXAdHsft5VYPeUOw-JeGW" />
-                        <div class="absolute top-4 left-4">
-                            <span
-                                class="inline-block bg-surface px-2 py-1 rounded text-primary font-label-md text-label-md uppercase tracking-wide shadow-sm">Announcement</span>
-                        </div>
-                    </div>
-                    <div class="p-stack-lg flex flex-col justify-center w-full md:w-3/5 bg-surface">
-                        <div class="flex items-center space-x-2 mb-stack-sm text-secondary font-label-md text-label-md">
-                            <span class="material-symbols-outlined text-[16px]">calendar_today</span>
-                            <span>February 28, 2024</span>
-                        </div>
-                        <h2
-                            class="text-headline-lg font-headline-lg text-primary mb-stack-md group-hover:text-surface-tint transition-colors">
-                            Registration Open for 2024 LA County Science Fair</h2>
-                        <p class="text-body-lg font-body-lg text-on-surface-variant mb-stack-lg">We are thrilled to
-                            announce that registration for the 74th Annual LA County Science &amp; Engineering Fair is
-                            now officially open. Students, teachers, and judges can begin the onboarding process.</p>
-                        <a class="inline-flex items-center text-primary font-label-md text-label-md hover:underline"
-                            href="#">
-                            Read Full Announcement <span
-                                class="material-symbols-outlined ml-1 text-[18px]">arrow_forward</span>
-                        </a>
-                    </div>
-                </article>
-                <!-- Grid of Standard Articles -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-stack-md">
-                    <!-- Article Card 1 -->
-                    <article
-                        class="bg-surface border border-outline-variant rounded-lg p-stack-md flex flex-col hover:border-primary-fixed-dim transition-colors">
-                        <div class="flex justify-between items-start mb-stack-md">
-                            <span
-                                class="inline-block bg-secondary-container text-on-secondary-fixed-variant px-2 py-1 rounded text-label-md font-label-md">For
-                                Judges</span>
-                            <span class="text-secondary font-label-md text-label-md">Feb 25, 2024</span>
-                        </div>
-                        <h3 class="text-headline-md font-headline-md text-primary mb-stack-sm">New Rubric Guidelines
-                            Released</h3>
-                        <p class="text-body-md font-body-md text-on-surface-variant mb-stack-md flex-grow">The judging
-                            committee has updated the evaluation rubrics for the Senior Division engineering categories
-                            to better reflect modern prototyping standards.</p>
-                        <a class="inline-flex items-center text-primary font-label-md text-label-md hover:underline mt-auto"
-                            href="#">
-                            View Rubrics <span class="material-symbols-outlined ml-1 text-[16px]">arrow_forward</span>
-                        </a>
-                    </article>
-                    <!-- Article Card 2 -->
-                    <article
-                        class="bg-surface border border-outline-variant rounded-lg p-stack-md flex flex-col hover:border-primary-fixed-dim transition-colors">
-                        <div class="flex justify-between items-start mb-stack-md">
-                            <span
-                                class="inline-block bg-tertiary-fixed text-on-tertiary-fixed-variant px-2 py-1 rounded text-label-md font-label-md">Success
-                                Stories</span>
-                            <span class="text-secondary font-label-md text-label-md">Feb 20, 2024</span>
-                        </div>
-                        <h3 class="text-headline-md font-headline-md text-primary mb-stack-sm">Alumni Spotlight: Sarah
-                            Chen's Water Filtration Journey</h3>
-                        <p class="text-body-md font-body-md text-on-surface-variant mb-stack-md flex-grow">Read about
-                            how last year's grand prize winner took her low-cost water filtration project from the LA
-                            Fair to an international symposium.</p>
-                        <a class="inline-flex items-center text-primary font-label-md text-label-md hover:underline mt-auto"
-                            href="#">
-                            Read Story <span class="material-symbols-outlined ml-1 text-[16px]">arrow_forward</span>
-                        </a>
-                    </article>
-                    <!-- Article Card 3 -->
-                    <article
-                        class="bg-surface border border-outline-variant rounded-lg p-stack-md flex flex-col hover:border-primary-fixed-dim transition-colors">
-                        <div class="flex justify-between items-start mb-stack-md">
-                            <span
-                                class="inline-block bg-surface-variant text-on-surface-variant px-2 py-1 rounded text-label-md font-label-md">For
-                                Teachers</span>
-                            <span class="text-secondary font-label-md text-label-md">Feb 18, 2024</span>
-                        </div>
-                        <h3 class="text-headline-md font-headline-md text-primary mb-stack-sm">Webinar: Supporting
-                            Student Research</h3>
-                        <p class="text-body-md font-body-md text-on-surface-variant mb-stack-md flex-grow">Join our
-                            upcoming webinar next Thursday where experienced faculty will share strategies for guiding
-                            students through long-term scientific research projects.</p>
-                        <a class="inline-flex items-center text-primary font-label-md text-label-md hover:underline mt-auto"
-                            href="#">
-                            Register Now <span class="material-symbols-outlined ml-1 text-[16px]">arrow_forward</span>
-                        </a>
-                    </article>
-                    <!-- Article Card 4 -->
-                    <article
-                        class="bg-surface border border-outline-variant rounded-lg p-stack-md flex flex-col hover:border-primary-fixed-dim transition-colors">
-                        <div class="flex justify-between items-start mb-stack-md">
-                            <span
-                                class="inline-block bg-primary-fixed text-on-primary-fixed px-2 py-1 rounded text-label-md font-label-md">For
-                                Students</span>
-                            <span class="text-secondary font-label-md text-label-md">Feb 15, 2024</span>
-                        </div>
-                        <h3 class="text-headline-md font-headline-md text-primary mb-stack-sm">How to Format Your
-                            Abstract</h3>
-                        <p class="text-body-md font-body-md text-on-surface-variant mb-stack-md flex-grow">A
-                            step-by-step guide on writing a clear, concise, and compelling abstract for your project
-                            submission. Includes examples of strong abstracts from past fairs.</p>
-                        <a class="inline-flex items-center text-primary font-label-md text-label-md hover:underline mt-auto"
-                            href="#">
-                            Read Guide <span class="material-symbols-outlined ml-1 text-[16px]">arrow_forward</span>
-                        </a>
-                    </article>
-                </div>
-                <!-- Pagination -->
-                <div
-                    class="flex justify-center items-center space-x-unit pt-stack-lg border-t border-outline-variant mt-stack-lg">
-                    <button
-                        class="p-2 border border-outline-variant rounded text-secondary hover:text-primary hover:border-primary disabled:opacity-50"
-                        disabled="">
-                        <span class="material-symbols-outlined text-[20px]">chevron_left</span>
-                    </button>
-                    <button
-                        class="w-8 h-8 flex items-center justify-center border border-primary bg-primary-container text-on-primary rounded font-label-md text-label-md">1</button>
-                    <button
-                        class="w-8 h-8 flex items-center justify-center border border-outline-variant text-secondary hover:text-primary hover:border-primary rounded font-label-md text-label-md transition-colors">2</button>
-                    <button
-                        class="w-8 h-8 flex items-center justify-center border border-outline-variant text-secondary hover:text-primary hover:border-primary rounded font-label-md text-label-md transition-colors">3</button>
-                    <span class="text-secondary">...</span>
-                    <button
-                        class="p-2 border border-outline-variant rounded text-secondary hover:text-primary hover:border-primary transition-colors">
-                        <span class="material-symbols-outlined text-[20px]">chevron_right</span>
-                    </button>
-                </div>
+                <div id="news-featured"></div>
+                <div id="news-grid" class="grid grid-cols-1 md:grid-cols-2 gap-stack-md"></div>
             </div>
         </div>
     </main>

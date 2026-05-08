@@ -11,7 +11,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         inject('site-footer', 'footer.html'),
     ]);
 
-    const currentPage = location.pathname.split('/').pop() || 'home.html';
+    let currentPage = location.pathname.split('/').pop() || 'home.html';
+    if (currentPage === 'article.html') currentPage = 'news.html';
     document.querySelectorAll('header nav a[data-page]').forEach(a => {
         if (a.dataset.page === currentPage) {
             a.classList.remove('text-secondary', 'dark:text-secondary-fixed-dim');

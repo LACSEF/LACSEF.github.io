@@ -1,0 +1,44 @@
+[
+  {
+    "id": "registration-2024",
+    "file": "2024-02/registration-2024/registration-2024",
+    "title": "Registration Open for 2024 LA County Science Fair",
+    "category": "Announcement",
+    "date": "2024-02-28",
+    "excerpt": "We are thrilled to announce that registration for the 74th Annual LA County Science & Engineering Fair is now officially open. Students, teachers, and judges can begin the onboarding process.",
+    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuA_G_r4lk6uB0i8Hgv5XEsoS8_3ItgweIMCJ8CAhrBTF-PWlzmZekiWiHM49VpSUT_knl0vVabVjXV9eejlm1T8i2DKEMTaim7HFy1OcN5LMo5mtote1RgsXT1EH86gcUGre-wKkLS1YUpgeWUo5U3MDzxBygWJEBcMnBtRpBC0SRUVy_M7qAY8eU70bU8CYE_z5D5StPr-MQp5G4vWD7yUfxVP4nGs0MMEpJ1D8ScmS34TwXMHl5ZSRJEXXAdHsft5VYPeUOw-JeGW",
+    "featured": true
+  },
+  {
+    "id": "new-rubric-guidelines",
+    "file": "2024-02/new-rubric-guidelines/new-rubric-guidelines",
+    "title": "New Rubric Guidelines Released",
+    "category": "For Judges",
+    "date": "2024-02-25",
+    "excerpt": "The judging committee has updated the evaluation rubrics for the Senior Division engineering categories to better reflect modern prototyping standards."
+  },
+  {
+    "id": "sarah-chen-spotlight",
+    "file": "2024-02/sarah-chen-spotlight/sarah-chen-spotlight",
+    "title": "Alumni Spotlight: Sarah Chen's Water Filtration Journey",
+    "category": "Success Stories",
+    "date": "2024-02-20",
+    "excerpt": "Read about how last year's grand prize winner took her low-cost water filtration project from the LA Fair to an international symposium."
+  },
+  {
+    "id": "webinar-student-research",
+    "file": "2024-02/webinar-student-research/webinar-student-research",
+    "title": "Webinar: Supporting Student Research",
+    "category": "For Teachers",
+    "date": "2024-02-18",
+    "excerpt": "Join our upcoming webinar next Thursday where experienced faculty will share strategies for guiding students through long-term scientific research projects."
+  },
+  {
+    "id": "abstract-format-guide",
+    "file": "2024-02/abstract-format-guide/abstract-format-guide",
+    "title": "How to Format Your Abstract",
+    "category": "For Students",
+    "date": "2024-02-15",
+    "excerpt": "A step-by-step guide on writing a clear, concise, and compelling abstract for your project submission. Includes examples of strong abstracts from past fairs."
+  }
+]
