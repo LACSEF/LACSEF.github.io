@@ -1,40 +1,40 @@
 {
   "_comment": "Single source of truth for fair scheduling data. Consumed by js/schedule.js, which renders into hook elements on home.html (timeline) and schedule.html (master timeline, registration phases, fair-day itinerary).",
-  "year": 2025,
+  "year": 2027,
 
-  "_milestones_comment": "Feeds the '2025 Fair Timeline' section on home.html (only entries with featuredOnHome: true) AND the 'Master Timeline' section on schedule.html (all entries). home.html uses shortDescription; schedule.html uses longDescription.",
+  "_milestones_comment": "Feeds the '2027 Fair Timeline' section on home.html (only entries with featuredOnHome: true) AND the 'Master Timeline' section on schedule.html (all entries). home.html uses shortDescription; schedule.html uses longDescription.",
   "milestones": [
     {
       "id": "registration-opens",
-      "dateLabel": "Oct 15, 2024",
+      "dateLabel": "Oct 15, 2026",
       "title": "Registration Opens",
       "shortDescription": "Student and project registration begins online.",
       "longDescription": "Online portal opens for student project submissions and initial abstract reviews.",
-      "status": "past",
-      "featuredOnHome": true
+      "status": "current",
+      "featuredOnHome": true,
+      "badge": "UPCOMING"
     },
     {
       "id": "src-irb-preapproval",
-      "dateLabel": "Dec 01, 2024",
+      "dateLabel": "Dec 01, 2026",
       "title": "SRC/IRB Pre-Approval",
       "shortDescription": "Approval deadline for projects with human, animal, or hazardous-agent research.",
       "longDescription": "Deadline for projects involving human subjects, vertebrate animals, or hazardous agents.",
-      "status": "past",
+      "status": "upcoming",
       "featuredOnHome": false
     },
     {
       "id": "project-submission",
-      "dateLabel": "Jan 20, 2025",
+      "dateLabel": "Jan 20, 2027",
       "title": "Final Project Submission",
       "shortDescription": "Final deadline for all digital project materials.",
       "longDescription": "All final research papers, digital display boards, and signed forms must be uploaded.",
-      "status": "current",
-      "featuredOnHome": true,
-      "badge": "UPCOMING DEADLINE"
+      "status": "upcoming",
+      "featuredOnHome": true
     },
     {
       "id": "judge-assignments",
-      "dateLabel": "Feb 10, 2025",
+      "dateLabel": "Feb 10, 2027",
       "title": "Judge Assignments",
       "shortDescription": "Judges receive preliminary project access.",
       "longDescription": "Judges are assigned to projects and receive preliminary access for review.",
@@ -43,7 +43,7 @@
     },
     {
       "id": "fair-day",
-      "dateLabel": "Mar 22 - 23, 2025",
+      "dateLabel": "Mar 8, 2027",
       "title": "LA Science Fair Day",
       "shortDescription": "Setup, safety checks, judging, and awards ceremony.",
       "longDescription": "In-person judging, public viewing, and awards ceremony.",
@@ -58,13 +58,13 @@
       "name": "Early Bird",
       "dateRange": "Oct 15 - Nov 30",
       "description": "Fee: $35 per student. Priority abstract review included.",
-      "status": "closed"
+      "status": "current"
     },
     {
       "name": "Standard Registration",
       "dateRange": "Dec 01 - Jan 31",
       "description": "Fee: $50 per student. All standard safety forms required.",
-      "status": "current"
+      "status": "upcoming"
     },
     {
       "name": "Late Submission",
@@ -76,7 +76,7 @@
 
   "_fairDay_comment": "Feeds the 'Fair Day Itinerary' bento card on schedule.html only. Not used by home.html. headline + venue render as the card subtitle ('<headline> - <venue>'); itinerary rows render in order. Set highlighted: true to emphasize a row, or badge: '...' to add a pill (e.g. 'Mandatory').",
   "fairDay": {
-    "headline": "Friday, March 22nd",
+    "headline": "Monday, March 8th",
     "venue": "Shrine Expo Hall",
     "itinerary": [
       {
