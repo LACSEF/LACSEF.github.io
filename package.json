@@ -1,0 +1,17 @@
+{
+  "name": "lacsef-website",
+  "private": true,
+  "scripts": {
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "husky": "^9.1.7",
+    "lint-staged": "^15.2.10",
+    "prettier": "^3.3.3"
+  },
+  "lint-staged": {
+    "*.{html,css,js,json,md}": "prettier --write"
+  }
+}
