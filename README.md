@@ -34,7 +34,7 @@ It's a **static website**. No backend, no database, no build step. You can open 
 
 ```
 .
-├── home.html                 ← homepage (entry point)
+├── index.html                 ← homepage (entry point)
 ├── schedule.html             ← full schedule + fair day itinerary
 ├── news.html                 ← news feed listing
 ├── article.html              ← single-article view (loads ?id=… from URL)
@@ -77,7 +77,7 @@ It's a **static website**. No backend, no database, no build step. You can open 
 
 ## Running the site locally
 
-You **can't** just double-click `home.html`. The page uses `fetch()` to pull in the header, footer, schedule, and news data — and browsers block `fetch()` on `file://` URLs for security. You need a tiny local web server.
+You **can't** just double-click `index.html`. The page uses `fetch()` to pull in the header, footer, schedule, and news data — and browsers block `fetch()` on `file://` URLs for security. You need a tiny local web server.
 
 ### Recommended: npm start
 
@@ -87,19 +87,19 @@ After running `npm install` (see [First-time setup](#first-time-setup)):
 npm start
 ```
 
-This starts the [`serve`](https://github.com/vercel/serve) static server. Open the URL it prints — usually <http://localhost:3000/home.html>.
+This starts the [`serve`](https://github.com/vercel/serve) static server. Open the URL it prints — usually <http://localhost:3000/index.html>.
 
 ### Alternatives
 
 ```bash
 # Python 3 (preinstalled on macOS / most Linux)
 python3 -m http.server 8000
-# → http://localhost:8000/home.html
+# → http://localhost:8000/index.html
 
-# VS Code "Live Server" extension — right-click home.html → Open with Live Server
+# VS Code "Live Server" extension — right-click index.html → Open with Live Server
 ```
 
-> The home page is `home.html`, not `index.html`. If you're hosting somewhere that requires `index.html`, ask whoever set up hosting — it's likely configured at the host level.
+> The home page is `index.html`, not `index.html`. If you're hosting somewhere that requires `index.html`, ask whoever set up hosting — it's likely configured at the host level.
 
 ---
 

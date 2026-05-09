@@ -8,5 +8,5 @@
     "**/node_modules": true,
     "**/Thumbs.db": true
   },
-  "livePreview.defaultPreviewPath": "/home.html"
+  "livePreview.defaultPreviewPath": "/index.html"
 }

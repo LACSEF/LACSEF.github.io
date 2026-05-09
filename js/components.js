@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     inject("site-footer", "components/footer.html"),
   ]);
 
-  let currentPage = location.pathname.split("/").pop() || "home.html";
+  let currentPage = location.pathname.split("/").pop() || "index.html";
   if (currentPage === "article.html") currentPage = "news.html";
   document.querySelectorAll("header nav a[data-page]").forEach((a) => {
     if (a.dataset.page === currentPage) {

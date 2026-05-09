@@ -1,8 +1,8 @@
 {
-  "_comment": "Single source of truth for fair scheduling data. Consumed by js/schedule.js, which renders into hook elements on home.html (timeline) and schedule.html (master timeline, registration phases, fair-day itinerary).",
+  "_comment": "Single source of truth for fair scheduling data. Consumed by js/schedule.js, which renders into hook elements on index.html (timeline) and schedule.html (master timeline, registration phases, fair-day itinerary).",
   "year": 2027,
 
-  "_milestones_comment": "Feeds the '2027 Fair Timeline' section on home.html (only entries with featuredOnHome: true) AND the 'Master Timeline' section on schedule.html (all entries). home.html uses shortDescription; schedule.html uses longDescription.",
+  "_milestones_comment": "Feeds the '2027 Fair Timeline' section on index.html (only entries with featuredOnHome: true) AND the 'Master Timeline' section on schedule.html (all entries). index.html uses shortDescription; schedule.html uses longDescription.",
   "milestones": [
     {
       "id": "registration-opens",
@@ -52,7 +52,7 @@
     }
   ],
 
-  "_registrationPhases_comment": "Feeds the 'Registration Phases' bento card on schedule.html only. Not used by home.html. Exactly one phase should have status: 'current' to render the highlighted 'Current Phase' card.",
+  "_registrationPhases_comment": "Feeds the 'Registration Phases' bento card on schedule.html only. Not used by index.html. Exactly one phase should have status: 'current' to render the highlighted 'Current Phase' card.",
   "registrationPhases": [
     {
       "name": "Early Bird",
@@ -74,7 +74,7 @@
     }
   ],
 
-  "_fairDay_comment": "Feeds the 'Fair Day Itinerary' bento card on schedule.html only. Not used by home.html. headline + venue render as the card subtitle ('<headline> - <venue>'); itinerary rows render in order. Set highlighted: true to emphasize a row, or badge: '...' to add a pill (e.g. 'Mandatory').",
+  "_fairDay_comment": "Feeds the 'Fair Day Itinerary' bento card on schedule.html only. Not used by index.html. headline + venue render as the card subtitle ('<headline> - <venue>'); itinerary rows render in order. Set highlighted: true to emphasize a row, or badge: '...' to add a pill (e.g. 'Mandatory').",
   "fairDay": {
     "headline": "Monday, March 8th",
     "venue": "Shrine Expo Hall",

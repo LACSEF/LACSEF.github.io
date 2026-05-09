@@ -57,6 +57,9 @@ tailwind.config = {
         xl: "0.5rem",
         full: "0.75rem",
       },
+      screens: {
+        nav: "1020px",
+      },
       spacing: {
         "stack-xl": "64px",
         "margin-desktop": "64px",
