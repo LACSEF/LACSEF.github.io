@@ -7,8 +7,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     await Promise.all([
-        inject('site-header', 'header.html'),
-        inject('site-footer', 'footer.html'),
+        inject('site-header', 'components/header.html'),
+        inject('site-footer', 'components/footer.html'),
     ]);
 
     let currentPage = location.pathname.split('/').pop() || 'home.html';
