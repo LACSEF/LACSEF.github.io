@@ -64,47 +64,16 @@
           <div class="absolute inset-0 bg-primary-container/10"></div>
         </div>
       </section>
-      <!-- Bento Grid Layout for Schedules -->
-      <section class="grid grid-cols-1 lg:grid-cols-12 gap-gutter w-full">
-        <!-- Left Column: Primary Timeline (col-span-4) -->
+      <!-- Unified Detailed Timeline -->
+      <section
+        class="bg-surface border border-outline-variant rounded-lg p-stack-lg flex flex-col gap-stack-lg w-full">
+        <div class="flex items-center gap-unit border-b border-outline-variant pb-stack-md">
+          <span class="material-symbols-outlined text-primary-container">flag</span>
+          <h2 class="font-headline-lg text-headline-md text-primary">Detailed Timeline</h2>
+        </div>
         <div
-          class="lg:col-span-4 flex flex-col gap-stack-lg bg-surface border border-outline-variant rounded-lg p-stack-lg">
-          <div class="flex items-center gap-unit border-b border-outline-variant pb-stack-md">
-            <span class="material-symbols-outlined text-primary-container">flag</span>
-            <h2 class="font-headline-lg text-headline-md text-primary">Master Timeline</h2>
-          </div>
-          <div
-            id="master-timeline"
-            class="relative pl-6 mt-unit space-y-stack-lg before:absolute before:inset-0 before:ml-[11px] before:h-full before:w-[2px] before:bg-surface-variant"></div>
-        </div>
-        <!-- Right Column: Detailed Breakdowns (col-span-8) -->
-        <div class="lg:col-span-8 flex flex-col gap-gutter">
-          <!-- Bento Box 1: Registration Details -->
-          <div
-            class="bg-surface border border-outline-variant rounded-lg p-stack-lg flex flex-col gap-stack-md">
-            <div class="flex justify-between items-end border-b border-outline-variant pb-stack-sm">
-              <h2 class="font-headline-lg text-[24px] text-primary">Registration Phases</h2>
-              <span class="material-symbols-outlined text-secondary">app_registration</span>
-            </div>
-            <div
-              id="registration-phases"
-              class="grid grid-cols-1 md:grid-cols-2 gap-stack-md mt-unit"></div>
-          </div>
-          <!-- Bento Box 2: Fair Day Itinerary -->
-          <div class="bg-surface border border-outline-variant rounded-lg flex flex-col">
-            <div
-              class="p-stack-lg border-b border-outline-variant flex justify-between items-center bg-surface-container-low rounded-t-lg">
-              <div>
-                <h2 class="font-headline-lg text-[24px] text-primary">Fair Day Itinerary</h2>
-                <p id="fair-day-header" class="font-body-md text-sm text-secondary mt-1"></p>
-              </div>
-              <span class="material-symbols-outlined text-primary-container text-[32px]"
-                >schedule</span
-              >
-            </div>
-            <div id="fair-day-itinerary" class="flex flex-col"></div>
-          </div>
-        </div>
+          id="detailed-timeline"
+          class="relative pl-8 mt-unit space-y-stack-xl before:absolute before:inset-0 before:ml-[15px] before:h-full before:w-[2px] before:bg-surface-variant"></div>
       </section>
     </main>
     <div id="site-footer"></div>
