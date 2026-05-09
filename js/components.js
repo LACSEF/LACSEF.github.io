@@ -22,4 +22,22 @@ document.addEventListener("DOMContentLoaded", async () => {
       a.classList.add("font-bold", "border-b-2", "border-on-primary", "pb-1");
     }
   });
+
+  const toggle = document.getElementById("mobile-nav-toggle");
+  const mobileNav = document.getElementById("mobile-nav");
+  if (toggle && mobileNav) {
+    const icon = toggle.querySelector(".material-symbols-outlined");
+    toggle.addEventListener("click", () => {
+      const isOpen = mobileNav.classList.toggle("hidden") === false;
+      toggle.setAttribute("aria-expanded", String(isOpen));
+      if (icon) icon.textContent = isOpen ? "close" : "menu";
+    });
+    mobileNav.querySelectorAll("a").forEach((a) => {
+      a.addEventListener("click", () => {
+        mobileNav.classList.add("hidden");
+        toggle.setAttribute("aria-expanded", "false");
+        if (icon) icon.textContent = "menu";
+      });
+    });
+  }
 });
