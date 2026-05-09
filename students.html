@@ -5,17 +5,14 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Student Portal - LA Science Fair</title>
+    <title>Student Resources - LA Science Fair</title>
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Public+Sans:wght@600;700&amp;display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Public+Sans:wght@600;700&display=swap"
         rel="stylesheet" />
     <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-        rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
         rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries,typography"></script>
     <script src="js/tailwind-config.js"></script>
@@ -23,185 +20,265 @@
     <script src="js/components.js"></script>
 </head>
 
-<body class="antialiased text-on-surface">
+<body class="antialiased text-on-surface bg-background min-h-screen flex flex-col">
     <div id="site-header"></div>
-    <main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-stack-xl">
-        <header class="mb-stack-xl">
-            <h1 class="font-headline-xl text-headline-xl text-primary mb-stack-sm">Student Dashboard</h1>
-            <p class="font-body-lg text-body-lg text-secondary">Manage your project submissions, track safety
-                clearances, and access fair resources.</p>
-        </header>
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
-            <div class="lg:col-span-4 flex flex-col gap-stack-lg">
-                <section class="bg-surface border border-outline-variant rounded-xl p-stack-lg">
-                    <h2 class="font-headline-md text-headline-md text-primary mb-stack-md">Submission Progress</h2>
-                    <div class="flex flex-col gap-0 relative">
-                        <div class="flex items-start gap-stack-md relative pb-stack-lg">
-                            <div class="absolute left-[11px] top-6 bottom-0 w-[2px] bg-primary-container"></div>
-                            <div
-                                class="w-6 h-6 rounded-full bg-primary-container flex items-center justify-center shrink-0 mt-1 z-10">
-                                <span
-                                    class="material-symbols-outlined text-[14px] text-on-primary font-bold">check</span>
-                            </div>
-                            <div>
-                                <h3 class="font-label-md text-label-md text-primary mb-1">Account Creation</h3>
-                                <p class="font-body-md text-body-md text-secondary text-sm">Completed Nov 12, 2023</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-stack-md relative pb-stack-lg">
-                            <div class="absolute left-[11px] top-6 bottom-0 w-[2px] bg-secondary-container"></div>
-                            <div
-                                class="w-6 h-6 rounded-full border-2 border-primary-container bg-surface flex items-center justify-center shrink-0 mt-1 z-10">
-                                <div class="w-2 h-2 rounded-full bg-primary-container"></div>
-                            </div>
-                            <div>
-                                <h3 class="font-label-md text-label-md text-primary mb-1">Registration Form</h3>
-                                <p class="font-body-md text-body-md text-secondary text-sm">In Progress - Due Dec 01</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-stack-md relative pb-stack-lg">
-                            <div class="absolute left-[11px] top-6 bottom-0 w-[2px] bg-secondary-container"></div>
-                            <div class="w-6 h-6 rounded-full border-2 border-outline bg-surface shrink-0 mt-1 z-10">
-                            </div>
-                            <div>
-                                <h3 class="font-label-md text-label-md text-secondary mb-1">Safety Clearance</h3>
-                                <p class="font-body-md text-body-md text-secondary text-sm">Pending Registration</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-stack-md relative">
-                            <div class="w-6 h-6 rounded-full border-2 border-outline bg-surface shrink-0 mt-1 z-10">
-                            </div>
-                            <div>
-                                <h3 class="font-label-md text-label-md text-secondary mb-1">Project Abstract</h3>
-                                <p class="font-body-md text-body-md text-secondary text-sm">Locked</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <section class="bg-surface-container-low border border-outline-variant rounded-xl p-stack-lg">
-                    <h2 class="font-headline-md text-headline-md text-primary mb-stack-md">Quick Resources</h2>
-                    <ul class="flex flex-col gap-stack-sm">
-                        <li>
-                            <a class="flex items-center gap-2 group p-2 -mx-2 rounded hover:bg-surface-variant transition-colors"
-                                href="#">
-                                <span
-                                    class="material-symbols-outlined text-secondary group-hover:text-primary-container">picture_as_pdf</span>
-                                <span
-                                    class="font-label-md text-label-md text-secondary group-hover:text-primary-container">2024
-                                    Rulebook</span>
-                                <span class="material-symbols-outlined text-outline ml-auto text-[18px]">download</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="flex items-center gap-2 group p-2 -mx-2 rounded hover:bg-surface-variant transition-colors"
-                                href="#">
-                                <span
-                                    class="material-symbols-outlined text-secondary group-hover:text-primary-container">description</span>
-                                <span
-                                    class="font-label-md text-label-md text-secondary group-hover:text-primary-container">Safety
-                                    Guidelines</span>
-                                <span class="material-symbols-outlined text-outline ml-auto text-[18px]">download</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="flex items-center gap-2 group p-2 -mx-2 rounded hover:bg-surface-variant transition-colors"
-                                href="deadlines.html">
-                                <span
-                                    class="material-symbols-outlined text-secondary group-hover:text-primary-container">view_timeline</span>
-                                <span
-                                    class="font-label-md text-label-md text-secondary group-hover:text-primary-container">Important
-                                    Dates</span>
-                                <span
-                                    class="material-symbols-outlined text-outline ml-auto text-[18px]">open_in_new</span>
 
-                            </a>
-                        </li>
-                    </ul>
-                </section>
+    <main class="flex-grow">
+
+        <!-- Page Hero -->
+        <section class="bg-surface border-b border-outline-variant py-stack-xl">
+            <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+                <h1 class="font-headline-xl text-headline-xl text-primary mb-stack-sm">Student Resources</h1>
+                <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-stack-lg">
+                    Everything you need to register, prepare, and compete at LACSEF. Start with registration, then
+                    work through safety clearance and your project display before fair day.
+                </p>
+                <a href="https://app.lascifair.org/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center gap-2 bg-primary-container text-on-primary font-label-md text-label-md px-8 py-4 rounded hover:opacity-90 transition-opacity">
+                    Go to Registration Portal
+                    <span class="material-symbols-outlined text-[18px]">open_in_new</span>
+                </a>
             </div>
-            <div class="lg:col-span-8 flex flex-col gap-stack-lg">
-                <h2 class="font-headline-lg text-headline-lg text-primary sr-only">Required Actions</h2>
-                <div
-                    class="bg-surface border border-outline-variant rounded-xl p-stack-lg relative overflow-hidden group">
-                    <div class="absolute top-0 left-0 w-1 h-full bg-primary-container"></div>
-                    <div
-                        class="flex flex-col md:flex-row justify-between items-start md:items-center gap-stack-md mb-stack-md">
-                        <div>
-                            <div class="flex items-center gap-2 mb-2">
-                                <h3 class="font-headline-md text-headline-md text-primary">Student Registration</h3>
-                                <span
-                                    class="bg-secondary-container text-primary-container px-2 py-1 rounded font-label-md text-[12px]">In
-                                    Progress</span>
-                            </div>
-                            <p class="font-body-md text-body-md text-secondary">Complete your personal details, school
-                                information, and select your project category.</p>
-                        </div>
-                        <span
-                            class="font-label-md text-label-md text-primary bg-surface-container-low px-3 py-1 rounded border border-outline-variant whitespace-nowrap">Due:
-                            Dec 01</span>
-                    </div>
-                    <div
-                        class="grid grid-cols-1 md:grid-cols-2 gap-stack-md mb-stack-lg bg-surface-container-low p-stack-md rounded">
-                        <div>
-                            <span class="block font-label-md text-label-md text-secondary mb-1">Current Category</span>
-                            <span class="font-body-md text-body-md text-primary">Unassigned</span>
-                        </div>
-                        <div>
-                            <span class="block font-label-md text-label-md text-secondary mb-1">Sponsor Teacher</span>
-                            <span class="font-body-md text-body-md text-primary">Dr. Sarah Jenkins</span>
-                        </div>
-                    </div>
-                    <div class="flex gap-stack-md">
-                        <button
-                            class="bg-primary-container text-on-primary font-label-md text-label-md px-6 py-3 rounded hover:bg-primary transition-colors">Continue
-                            Form</button>
-                    </div>
+        </section>
+
+        <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-stack-xl flex flex-col gap-stack-xl">
+
+            <!-- Getting Started -->
+            <section>
+                <div class="flex items-center gap-2 mb-stack-md">
+                    <span class="material-symbols-outlined text-primary-container">rocket_launch</span>
+                    <h2 class="font-headline-md text-headline-md text-primary">Getting Started</h2>
                 </div>
-                <div class="bg-surface border border-outline-variant rounded-xl p-stack-lg opacity-80">
-                    <div
-                        class="flex flex-col md:flex-row justify-between items-start md:items-center gap-stack-md mb-stack-md">
-                        <div>
-                            <div class="flex items-center gap-2 mb-2">
-                                <h3 class="font-headline-md text-headline-md text-primary">Safety &amp; Ethics Clearance
-                                </h3>
-                                <span
-                                    class="bg-surface-variant text-secondary px-2 py-1 rounded font-label-md text-[12px]">Not
-                                    Started</span>
-                            </div>
-                            <p class="font-body-md text-body-md text-secondary">Required for projects involving human
-                                subjects, vertebrate animals, or hazardous materials.</p>
-                        </div>
-                        <span class="material-symbols-outlined text-outline text-3xl">lock</span>
-                    </div>
-                    <div class="flex gap-stack-md mt-stack-md">
-                        <button
-                            class="border border-outline-variant text-secondary font-label-md text-label-md px-6 py-3 rounded cursor-not-allowed bg-surface-container-low"
-                            disabled="">Unlock after Registration</button>
-                    </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-gutter">
+
+                    <a href="students/how-to-participate.html"
+                        class="bg-surface border border-outline-variant rounded-xl p-stack-lg flex flex-col gap-stack-sm hover:border-primary-container transition-colors group">
+                        <span class="material-symbols-outlined text-secondary group-hover:text-primary-container text-3xl">how_to_reg</span>
+                        <h3 class="font-label-md text-label-md text-primary">How to Participate</h3>
+                        <p class="font-body-md text-body-md text-secondary text-sm flex-grow">Step-by-step overview of the enrollment process for students and schools.</p>
+                        <span class="font-label-md text-label-md text-primary-container flex items-center gap-1 text-sm">Learn more <span class="material-symbols-outlined text-[16px]">arrow_forward</span></span>
+                    </a>
+
+                    <a href="https://docs.google.com/document/d/12lUY9wWhTtGTly0QUghEocIQQ9ResBkqzL0bKrAvoN8/edit"
+                        target="_blank" rel="noopener noreferrer"
+                        class="bg-surface border border-outline-variant rounded-xl p-stack-lg flex flex-col gap-stack-sm hover:border-primary-container transition-colors group">
+                        <span class="material-symbols-outlined text-secondary group-hover:text-primary-container text-3xl">assignment</span>
+                        <h3 class="font-label-md text-label-md text-primary">Student Registration Process</h3>
+                        <p class="font-body-md text-body-md text-secondary text-sm flex-grow">Detailed walkthrough of the student project registration steps.</p>
+                        <span class="font-label-md text-label-md text-primary-container flex items-center gap-1 text-sm">Open doc <span class="material-symbols-outlined text-[16px]">open_in_new</span></span>
+                    </a>
+
+                    <a href="students/student-project-registration.html"
+                        class="bg-surface border border-outline-variant rounded-xl p-stack-lg flex flex-col gap-stack-sm hover:border-primary-container transition-colors group">
+                        <span class="material-symbols-outlined text-secondary group-hover:text-primary-container text-3xl">edit_note</span>
+                        <h3 class="font-label-md text-label-md text-primary">Project Registration Info</h3>
+                        <p class="font-body-md text-body-md text-secondary text-sm flex-grow">What information you'll need to complete your project registration.</p>
+                        <span class="font-label-md text-label-md text-primary-container flex items-center gap-1 text-sm">Learn more <span class="material-symbols-outlined text-[16px]">arrow_forward</span></span>
+                    </a>
+
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdrkrgSMXNyu5NA5RKgYI5_E0jAvxijNITs19tyXG2kvCKeKg/viewform"
+                        target="_blank" rel="noopener noreferrer"
+                        class="bg-surface border border-outline-variant rounded-xl p-stack-lg flex flex-col gap-stack-sm hover:border-primary-container transition-colors group">
+                        <span class="material-symbols-outlined text-secondary group-hover:text-primary-container text-3xl">volunteer_activism</span>
+                        <h3 class="font-label-md text-label-md text-primary">Intent to Participate Form</h3>
+                        <p class="font-body-md text-body-md text-secondary text-sm flex-grow">Submit your school's intent to participate in the fair this year.</p>
+                        <span class="font-label-md text-label-md text-primary-container flex items-center gap-1 text-sm">Open form <span class="material-symbols-outlined text-[16px]">open_in_new</span></span>
+                    </a>
+
+                    <a href="https://docs.google.com/document/d/1OKOwJXlKK5lHxSZcxZiFDgeg2p8hVAnUqMHm9S9_hII/edit"
+                        target="_blank" rel="noopener noreferrer"
+                        class="bg-surface border border-outline-variant rounded-xl p-stack-lg flex flex-col gap-stack-sm hover:border-primary-container transition-colors group">
+                        <span class="material-symbols-outlined text-secondary group-hover:text-primary-container text-3xl">payments</span>
+                        <h3 class="font-label-md text-label-md text-primary">Fee Payment &amp; Waiver Form</h3>
+                        <p class="font-body-md text-body-md text-secondary text-sm flex-grow">Pay your registration fee or apply for a fee waiver if eligible.</p>
+                        <span class="font-label-md text-label-md text-primary-container flex items-center gap-1 text-sm">Open doc <span class="material-symbols-outlined text-[16px]">open_in_new</span></span>
+                    </a>
+
+                    <a href="https://docs.google.com/document/d/1SzKtinxUtt33MCoRLfD3JBsAvDpiimP0W2tbTgs7aI4/edit?tab=t.0"
+                        target="_blank" rel="noopener noreferrer"
+                        class="bg-surface border border-outline-variant rounded-xl p-stack-lg flex flex-col gap-stack-sm hover:border-primary-container transition-colors group">
+                        <span class="material-symbols-outlined text-secondary group-hover:text-primary-container text-3xl">policy</span>
+                        <h3 class="font-label-md text-label-md text-primary">Eligibility Policy</h3>
+                        <p class="font-body-md text-body-md text-secondary text-sm flex-grow">Read the official eligibility requirements before entering.</p>
+                        <span class="font-label-md text-label-md text-primary-container flex items-center gap-1 text-sm">Open doc <span class="material-symbols-outlined text-[16px]">open_in_new</span></span>
+                    </a>
+
                 </div>
-                <div class="bg-surface border border-outline-variant rounded-xl p-stack-lg opacity-80">
-                    <div
-                        class="flex flex-col md:flex-row justify-between items-start md:items-center gap-stack-md mb-stack-md">
-                        <div>
-                            <div class="flex items-center gap-2 mb-2">
-                                <h3 class="font-headline-md text-headline-md text-primary">Project Abstract</h3>
-                                <span
-                                    class="bg-surface-variant text-secondary px-2 py-1 rounded font-label-md text-[12px]">Locked</span>
-                            </div>
-                            <p class="font-body-md text-body-md text-secondary">Submit your final 250-word summary of
-                                your research methodology and conclusions.</p>
-                        </div>
-                        <span class="material-symbols-outlined text-outline text-3xl">lock</span>
-                    </div>
-                    <div class="flex gap-stack-md mt-stack-md">
-                        <button
-                            class="border border-outline-variant text-secondary font-label-md text-label-md px-6 py-3 rounded cursor-not-allowed bg-surface-container-low"
-                            disabled="">Available Jan 15</button>
-                    </div>
+            </section>
+
+            <!-- Important Dates & Competition Info -->
+            <section>
+                <div class="flex items-center gap-2 mb-stack-md">
+                    <span class="material-symbols-outlined text-primary-container">calendar_month</span>
+                    <h2 class="font-headline-md text-headline-md text-primary">Important Dates &amp; Competition Info</h2>
                 </div>
-            </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-gutter">
+
+                    <a href="https://drive.google.com/file/d/1HCg5SMwoV8gXE9Qo8EsG9V6cVxlO-Vv_/view?usp=sharing"
+                        target="_blank" rel="noopener noreferrer"
+                        class="bg-surface border border-outline-variant rounded-xl p-stack-lg flex flex-col gap-stack-sm hover:border-primary-container transition-colors group">
+                        <span class="material-symbols-outlined text-secondary group-hover:text-primary-container text-3xl">event</span>
+                        <h3 class="font-label-md text-label-md text-primary">2025-26 Important Dates &amp; Deadlines</h3>
+                        <p class="font-body-md text-body-md text-secondary text-sm flex-grow">Key dates for registration, safety forms, and fair day.</p>
+                        <span class="font-label-md text-label-md text-primary-container flex items-center gap-1 text-sm">View <span class="material-symbols-outlined text-[16px]">open_in_new</span></span>
+                    </a>
+
+                    <a href="https://docs.google.com/presentation/d/1W6uYpNbKtsa5J-OYsvBLpl-aeWYE1sYf/edit?usp=sharing&ouid=114776928689056580521&rtpof=true&sd=true"
+                        target="_blank" rel="noopener noreferrer"
+                        class="bg-surface border border-outline-variant rounded-xl p-stack-lg flex flex-col gap-stack-sm hover:border-primary-container transition-colors group">
+                        <span class="material-symbols-outlined text-secondary group-hover:text-primary-container text-3xl">slideshow</span>
+                        <h3 class="font-label-md text-label-md text-primary">LACSEF Info 25-26</h3>
+                        <p class="font-body-md text-body-md text-secondary text-sm flex-grow">Full overview presentation covering the 2025-26 fair season.</p>
+                        <span class="font-label-md text-label-md text-primary-container flex items-center gap-1 text-sm">View slides <span class="material-symbols-outlined text-[16px]">open_in_new</span></span>
+                    </a>
+
+                    <a href="students/category-descriptions.html"
+                        class="bg-surface border border-outline-variant rounded-xl p-stack-lg flex flex-col gap-stack-sm hover:border-primary-container transition-colors group">
+                        <span class="material-symbols-outlined text-secondary group-hover:text-primary-container text-3xl">category</span>
+                        <h3 class="font-label-md text-label-md text-primary">Category Descriptions</h3>
+                        <p class="font-body-md text-body-md text-secondary text-sm flex-grow">Browse all project categories to find the right fit for your research.</p>
+                        <span class="font-label-md text-label-md text-primary-container flex items-center gap-1 text-sm">Browse <span class="material-symbols-outlined text-[16px]">arrow_forward</span></span>
+                    </a>
+
+                </div>
+            </section>
+
+            <!-- Rules & Regulations -->
+            <section>
+                <div class="flex items-center gap-2 mb-stack-md">
+                    <span class="material-symbols-outlined text-primary-container">gavel</span>
+                    <h2 class="font-headline-md text-headline-md text-primary">Rules &amp; Regulations</h2>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-gutter">
+
+                    <a href="https://docs.google.com/document/d/1sozEwa7zBoOvGxMZnW74qKfJIgV1dq2ZcheuEIDnCtA/edit"
+                        target="_blank" rel="noopener noreferrer"
+                        class="bg-surface border border-outline-variant rounded-xl p-stack-lg flex flex-col gap-stack-sm hover:border-primary-container transition-colors group">
+                        <span class="material-symbols-outlined text-secondary group-hover:text-primary-container text-3xl">menu_book</span>
+                        <h3 class="font-label-md text-label-md text-primary">Project Rules &amp; Regulations</h3>
+                        <p class="font-body-md text-body-md text-secondary text-sm flex-grow">The official rulebook covering all project requirements, research guidelines, and judging criteria.</p>
+                        <span class="font-label-md text-label-md text-primary-container flex items-center gap-1 text-sm">Open doc <span class="material-symbols-outlined text-[16px]">open_in_new</span></span>
+                    </a>
+
+                    <a href="downloads/display-regulations.pdf"
+                        target="_blank" rel="noopener noreferrer"
+                        class="bg-surface border border-outline-variant rounded-xl p-stack-lg flex flex-col gap-stack-sm hover:border-primary-container transition-colors group">
+                        <span class="material-symbols-outlined text-secondary group-hover:text-primary-container text-3xl">dashboard</span>
+                        <h3 class="font-label-md text-label-md text-primary">Display Regulations</h3>
+                        <p class="font-body-md text-body-md text-secondary text-sm flex-grow">Size limits, materials, and setup rules for your display board at the fair.</p>
+                        <span class="font-label-md text-label-md text-primary-container flex items-center gap-1 text-sm">Download PDF <span class="material-symbols-outlined text-[16px]">download</span></span>
+                    </a>
+
+                </div>
+            </section>
+
+            <!-- Pre-Approval -->
+            <section>
+                <div class="flex items-center gap-2 mb-stack-md">
+                    <span class="material-symbols-outlined text-primary-container">verified</span>
+                    <h2 class="font-headline-md text-headline-md text-primary">Pre-Approval (Safety &amp; Ethics)</h2>
+                </div>
+                <p class="font-body-md text-body-md text-secondary mb-stack-md max-w-2xl">
+                    Required for projects involving human subjects, vertebrate animals, hazardous substances, or regulated research. Complete pre-approval before starting your experiment.
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
+
+                    <a href="https://drive.google.com/file/d/1h6Woo-YiY_-6TbG81vCETGmUJGa5anaG/view?usp=sharing"
+                        target="_blank" rel="noopener noreferrer"
+                        class="bg-surface border border-outline-variant rounded-xl p-stack-lg flex flex-col gap-stack-sm hover:border-primary-container transition-colors group">
+                        <span class="material-symbols-outlined text-secondary group-hover:text-primary-container text-3xl">help_outline</span>
+                        <h3 class="font-label-md text-label-md text-primary">Understanding the Process</h3>
+                        <p class="font-body-md text-body-md text-secondary text-sm flex-grow">An overview of what pre-approval is and when it's required.</p>
+                        <span class="font-label-md text-label-md text-primary-container flex items-center gap-1 text-sm">View <span class="material-symbols-outlined text-[16px]">open_in_new</span></span>
+                    </a>
+
+                    <a href="students/pre-approval-faq.html"
+                        class="bg-surface border border-outline-variant rounded-xl p-stack-lg flex flex-col gap-stack-sm hover:border-primary-container transition-colors group">
+                        <span class="material-symbols-outlined text-secondary group-hover:text-primary-container text-3xl">quiz</span>
+                        <h3 class="font-label-md text-label-md text-primary">Pre-Approval FAQ</h3>
+                        <p class="font-body-md text-body-md text-secondary text-sm flex-grow">Common questions about the pre-approval process answered.</p>
+                        <span class="font-label-md text-label-md text-primary-container flex items-center gap-1 text-sm">Read FAQ <span class="material-symbols-outlined text-[16px]">arrow_forward</span></span>
+                    </a>
+
+                    <a href="students/supervisor-qualifications.html"
+                        class="bg-surface border border-outline-variant rounded-xl p-stack-lg flex flex-col gap-stack-sm hover:border-primary-container transition-colors group">
+                        <span class="material-symbols-outlined text-secondary group-hover:text-primary-container text-3xl">badge</span>
+                        <h3 class="font-label-md text-label-md text-primary">Supervisor Qualifications</h3>
+                        <p class="font-body-md text-body-md text-secondary text-sm flex-grow">Requirements for the adult supervisor overseeing your research.</p>
+                        <span class="font-label-md text-label-md text-primary-container flex items-center gap-1 text-sm">Learn more <span class="material-symbols-outlined text-[16px]">arrow_forward</span></span>
+                    </a>
+
+                    <a href="students/understanding-src-results.html"
+                        class="bg-surface border border-outline-variant rounded-xl p-stack-lg flex flex-col gap-stack-sm hover:border-primary-container transition-colors group">
+                        <span class="material-symbols-outlined text-secondary group-hover:text-primary-container text-3xl">fact_check</span>
+                        <h3 class="font-label-md text-label-md text-primary">Understanding SRC Results</h3>
+                        <p class="font-body-md text-body-md text-secondary text-sm flex-grow">How to read and respond to your Scientific Review Committee decision.</p>
+                        <span class="font-label-md text-label-md text-primary-container flex items-center gap-1 text-sm">Learn more <span class="material-symbols-outlined text-[16px]">arrow_forward</span></span>
+                    </a>
+
+                </div>
+            </section>
+
+            <!-- Fair Day Prep -->
+            <section>
+                <div class="flex items-center gap-2 mb-stack-md">
+                    <span class="material-symbols-outlined text-primary-container">emoji_events</span>
+                    <h2 class="font-headline-md text-headline-md text-primary">Fair Day Preparation</h2>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-gutter">
+
+                    <a href="downloads/judging-interviews.pdf"
+                        target="_blank" rel="noopener noreferrer"
+                        class="bg-surface border border-outline-variant rounded-xl p-stack-lg flex flex-col gap-stack-sm hover:border-primary-container transition-colors group">
+                        <span class="material-symbols-outlined text-secondary group-hover:text-primary-container text-3xl">record_voice_over</span>
+                        <h3 class="font-label-md text-label-md text-primary">Preparing for Judging &amp; Interviews</h3>
+                        <p class="font-body-md text-body-md text-secondary text-sm flex-grow">Tips for presenting your project confidently to judges on fair day.</p>
+                        <span class="font-label-md text-label-md text-primary-container flex items-center gap-1 text-sm">Download PDF <span class="material-symbols-outlined text-[16px]">download</span></span>
+                    </a>
+
+                    <a href="downloads/display-regulations.pdf"
+                        target="_blank" rel="noopener noreferrer"
+                        class="bg-surface border border-outline-variant rounded-xl p-stack-lg flex flex-col gap-stack-sm hover:border-primary-container transition-colors group">
+                        <span class="material-symbols-outlined text-secondary group-hover:text-primary-container text-3xl">crop_landscape</span>
+                        <h3 class="font-label-md text-label-md text-primary">How to Prepare Your Display</h3>
+                        <p class="font-body-md text-body-md text-secondary text-sm flex-grow">Guidelines for assembling a clear, compliant project display board.</p>
+                        <span class="font-label-md text-label-md text-primary-container flex items-center gap-1 text-sm">Download PDF <span class="material-symbols-outlined text-[16px]">download</span></span>
+                    </a>
+
+                    <a href="https://drive.google.com/file/d/1UMoSiGGhZ4zFUiAELAKdUZXixyIg3U4u/view?ts=69ac6f92"
+                        target="_blank" rel="noopener noreferrer"
+                        class="bg-surface border border-outline-variant rounded-xl p-stack-lg flex flex-col gap-stack-sm hover:border-primary-container transition-colors group">
+                        <span class="material-symbols-outlined text-secondary group-hover:text-primary-container text-3xl">menu_book</span>
+                        <h3 class="font-label-md text-label-md text-primary">2026 LACSEF Program</h3>
+                        <p class="font-body-md text-body-md text-secondary text-sm flex-grow">The official event program with schedules, maps, and award categories.</p>
+                        <span class="font-label-md text-label-md text-primary-container flex items-center gap-1 text-sm">View <span class="material-symbols-outlined text-[16px]">open_in_new</span></span>
+                    </a>
+
+                    <a href="https://drive.google.com/file/d/1JmLdHs1W-Uo_5TrmKcIbvwL0Y8P7abV6/view?usp=sharing"
+                        target="_blank" rel="noopener noreferrer"
+                        class="bg-surface border border-outline-variant rounded-xl p-stack-lg flex flex-col gap-stack-sm hover:border-primary-container transition-colors group">
+                        <span class="material-symbols-outlined text-secondary group-hover:text-primary-container text-3xl">celebration</span>
+                        <h3 class="font-label-md text-label-md text-primary">2026 Event Flyer</h3>
+                        <p class="font-body-md text-body-md text-secondary text-sm flex-grow">Share the 2026 fair flyer with your school and community.</p>
+                        <span class="font-label-md text-label-md text-primary-container flex items-center gap-1 text-sm">View <span class="material-symbols-outlined text-[16px]">open_in_new</span></span>
+                    </a>
+
+                    <a href="http://www.jpl.nasa.gov/edu/learn/activities/science-fair-project/"
+                        target="_blank" rel="noopener noreferrer"
+                        class="bg-surface border border-outline-variant rounded-xl p-stack-lg flex flex-col gap-stack-sm hover:border-primary-container transition-colors group">
+                        <span class="material-symbols-outlined text-secondary group-hover:text-primary-container text-3xl">science</span>
+                        <h3 class="font-label-md text-label-md text-primary">How to Do a Science Fair Project</h3>
+                        <p class="font-body-md text-body-md text-secondary text-sm flex-grow">A beginner-friendly guide from JPL/NASA covering the scientific method.</p>
+                        <span class="font-label-md text-label-md text-primary-container flex items-center gap-1 text-sm">Visit JPL <span class="material-symbols-outlined text-[16px]">open_in_new</span></span>
+                    </a>
+                </div>
+            </section>
+
         </div>
     </main>
+
     <div id="site-footer"></div>
 </body>
 

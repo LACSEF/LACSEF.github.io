@@ -29,13 +29,15 @@ async function loadArticles() {
 }
 
 function renderTicker(articles, container) {
-    container.innerHTML = articles.slice(0, 4).map(a => `
-        <a class="font-body-md text-body-md text-on-surface hover:text-primary transition-colors flex items-center gap-2"
+    const items = articles.slice(0, 6).map(a => `
+        <a class="font-body-md text-body-md text-on-surface hover:text-primary transition-colors flex items-center gap-2 pr-16"
            href="${articleHref(a.id)}">
-            <span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+            <span class="w-1.5 h-1.5 rounded-full bg-primary shrink-0"></span>
             ${escapeHtml(a.title)}
         </a>
     `).join('');
+    // Duplicate for seamless infinite scroll
+    container.innerHTML = items + items;
 }
 
 function renderFeatured(article, container) {

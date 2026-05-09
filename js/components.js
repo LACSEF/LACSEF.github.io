@@ -1,6 +1,10 @@
+const _base = document.currentScript
+    ? document.currentScript.src.replace(/\/js\/components\.js.*$/, '')
+    : '';
+
 document.addEventListener('DOMContentLoaded', async () => {
     async function inject(id, url) {
-        const res = await fetch(url);
+        const res = await fetch(_base + '/' + url);
         const html = await res.text();
         const el = document.getElementById(id);
         if (el) el.outerHTML = html;

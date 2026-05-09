@@ -34,7 +34,9 @@
                     class="font-label-md text-label-md text-primary-container mr-stack-md shrink-0 uppercase tracking-wider flex items-center gap-1">
                     <span class="material-symbols-outlined text-[16px]">campaign</span> Latest News
                 </span>
-                <div id="news-ticker" class="flex gap-stack-xl whitespace-nowrap overflow-x-auto no-scrollbar scroll-smooth"></div>
+                <div class="overflow-hidden flex-1 min-w-0">
+                    <div id="news-ticker" class="ticker-track gap-stack-xl whitespace-nowrap"></div>
+                </div>
             </div>
         </div>
         <!-- Hero Section -->
@@ -42,11 +44,6 @@
             <div
                 class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop relative z-10 grid grid-cols-1 md:grid-cols-2 gap-stack-xl items-center">
                 <div class="flex flex-col gap-stack-md max-w-2xl">
-                    <div
-                        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container border border-outline-variant w-max mb-stack-sm">
-                        <span class="w-2 h-2 rounded-full bg-primary-container"></span>
-                        <span class="font-label-md text-label-md text-on-surface">March 14-16, 2025</span>
-                    </div>
                     <h1 class="font-headline-xl text-headline-xl md:text-[56px] text-primary leading-tight">
                         Inspiring the Next Generation of Scientists
                     </h1>
@@ -110,7 +107,7 @@
                             and educators.</p>
                     </div>
                     <a class="font-label-md text-label-md text-primary-container flex items-center gap-1 hover:underline mt-4 md:mt-0"
-                        href="deadlines.html">
+                        href="schedule.html">
                         View Full Schedule <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
                     </a>
                 </div>
