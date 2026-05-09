@@ -79,19 +79,25 @@ It's a **static website**. No backend, no database, no build step. You can open 
 
 You **can't** just double-click `home.html`. The page uses `fetch()` to pull in the header, footer, schedule, and news data — and browsers block `fetch()` on `file://` URLs for security. You need a tiny local web server.
 
-Pick whichever you have installed:
+### Recommended: npm start
+
+After running `npm install` (see [First-time setup](#first-time-setup)):
 
 ```bash
-# Option 1: Python 3 (preinstalled on macOS / most Linux)
-python3 -m http.server 8000
-
-# Option 2: Node (you'll have it after running `npm install`)
-npx serve .
-
-# Option 3: VS Code "Live Server" extension — right-click home.html → Open with Live Server
+npm start
 ```
 
-Then open <http://localhost:8000/home.html> in your browser.
+This starts the [`serve`](https://github.com/vercel/serve) static server. Open the URL it prints — usually <http://localhost:3000/home.html>.
+
+### Alternatives
+
+```bash
+# Python 3 (preinstalled on macOS / most Linux)
+python3 -m http.server 8000
+# → http://localhost:8000/home.html
+
+# VS Code "Live Server" extension — right-click home.html → Open with Live Server
+```
 
 > The home page is `home.html`, not `index.html`. If you're hosting somewhere that requires `index.html`, ask whoever set up hosting — it's likely configured at the host level.
 
@@ -191,15 +197,33 @@ Drop the file in [downloads/](downloads/) and link to it with a relative path:
 
 ## First-time setup
 
-You'll need [Node.js](https://nodejs.org/) installed (any recent LTS works). Then, in this directory:
+### 1. Install Node.js and npm
+
+npm ships bundled with Node.js. Download the **LTS** installer for your OS from [nodejs.org](https://nodejs.org/) and run it.
+
+To verify the install worked:
+
+```bash
+node --version   # should print v18.x or higher
+npm --version    # should print 9.x or higher
+```
+
+> **macOS (Homebrew):** `brew install node`
+> **Ubuntu/Debian:** `sudo apt install nodejs npm`
+> **Windows:** use the `.msi` installer from nodejs.org or install via [nvm-windows](https://github.com/coreybutler/nvm-windows).
+
+### 2. Install project dependencies
+
+In the repo directory, run:
 
 ```bash
 npm install
 ```
 
-That's it. This:
+This installs:
 
-- Installs Prettier (formatter), husky (git hook manager), and lint-staged (runs the formatter on only the files you're committing).
+- `serve` — the local dev server (`npm start`)
+- Prettier (formatter), husky (git hook manager), lint-staged (runs formatter on staged files).
 - Wires up the pre-commit hook automatically (via husky's `prepare` script).
 
 You only need to do this **once per clone** of the repo.
@@ -268,7 +292,7 @@ Use sparingly. The hook exists so the repo stays consistent.
 
 1. Pull latest: `git pull`
 2. Make your edits.
-3. Open the site locally (`python3 -m http.server 8000`) and check it looks right — including the page on a narrow window (mobile layout).
+3. Open the site locally (`npm start`) and check it looks right — including the page on a narrow window (mobile layout).
 4. `git add <files>` and `git commit -m "short message"` — the hook will format on the way through.
 5. `git push`.
 
