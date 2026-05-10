@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <radialGradient id="bg" cx="78%" cy="18%" r="95%">
+      <stop offset="0%" stop-color="#0a3a72" />
+      <stop offset="55%" stop-color="#001e40" />
+      <stop offset="100%" stop-color="#001428" />
+    </radialGradient>
+    <linearGradient id="rule" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#a7c8ff" stop-opacity="1" />
+      <stop offset="100%" stop-color="#a7c8ff" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)" />
+
+  <!-- Atom motif (right) -->
+  <g transform="translate(990 320)" fill="none" stroke="#a7c8ff" stroke-width="2.5" opacity="0.6">
+    <ellipse cx="0" cy="0" rx="170" ry="62" />
+    <ellipse cx="0" cy="0" rx="170" ry="62" transform="rotate(60)" />
+    <ellipse cx="0" cy="0" rx="170" ry="62" transform="rotate(-60)" />
+  </g>
+  <g transform="translate(990 320)" fill="#a7c8ff" stroke="none">
+    <circle cx="0" cy="0" r="11" />
+    <circle cx="170" cy="0" r="6" opacity="0.9" />
+    <circle cx="-85" cy="-147.2" r="5" opacity="0.85" />
+    <circle cx="-85" cy="147.2" r="5" opacity="0.85" />
+  </g>
+
+  <!-- Eyebrow -->
+  <text x="80" y="160" font-family="Inter" font-weight="600" font-size="22" letter-spacing="6" fill="#a7c8ff">LACSEF · EST. 1950</text>
+
+  <!-- Headline -->
+  <text x="80" y="300" font-family="Public Sans" font-weight="800" font-size="108" fill="#ffffff" letter-spacing="-2">LA Science Fair</text>
+
+  <!-- Subhead -->
+  <text x="80" y="360" font-family="Inter" font-weight="400" font-size="28" fill="#c3c6d1">Los Angeles County Science &amp; Engineering Fair</text>
+
+  <!-- Accent rule -->
+  <rect x="80" y="420" width="200" height="3" fill="url(#rule)" />
+
+  <!-- Stats -->
+  <text x="80" y="468" font-family="Inter" font-weight="600" font-size="20" letter-spacing="3" fill="#a7c8ff">1,150+ STUDENTS  ·  150+ SCHOOLS  ·  38 CATEGORIES</text>
+
+  <!-- URL -->
+  <text x="80" y="555" font-family="Inter" font-weight="500" font-size="26" fill="#ffffff" opacity="0.88">lascifair.org</text>
+</svg>
