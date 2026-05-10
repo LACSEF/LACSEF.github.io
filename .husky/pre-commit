@@ -1,13 +1,21 @@
-# If any CSS-affecting file is staged (HTML, JS, src/main.css, tailwind.config.js),
-# rebuild Tailwind and re-stage the output so css/styles.css can never go stale.
+# If any source file that feeds a build output is staged, run the full build
+# locally to catch errors before push. Build outputs themselves aren't tracked
+# in git — they're regenerated on every deploy by .github/workflows/deploy.yml,
+# so the only purpose of running here is fast feedback (and to keep the local
+# preview in sync if `npm start` is running).
+# Triggers:
+#   - HTML pages (Tailwind class scan)
+#   - JS / MJS (Tailwind scan + scripts/build-articles.mjs is itself a source)
+#   - src/main.css, tailwind.config.js (CSS source / config)
+#   - news/articles.json, news/posts/<...>.md (article body / metadata)
+#   - anything under scripts/ (build script template change)
 if git diff --cached --name-only --diff-filter=ACMR \
-  | grep -qE '\.(html|js)$|^src/main\.css$|^tailwind\.config\.js$'; then
-  echo "→ rebuilding Tailwind (css/styles.css)"
-  npm run --silent build:css || {
-    echo "✖ CSS build failed; aborting commit."
+  | grep -qE '\.(html|js|mjs)$|^src/main\.css$|^tailwind\.config\.js$|^news/articles\.json$|^news/posts/.*\.md$|^scripts/'; then
+  echo "→ verifying build (sources affecting build outputs are staged)"
+  npm run --silent build > /dev/null || {
+    echo "✖ Build failed; aborting commit. Fix the error above and try again."
     exit 1
   }
-  git add css/styles.css
 fi
 
 npx lint-staged

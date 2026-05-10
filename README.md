@@ -8,26 +8,32 @@ This README is for **anyone editing site content or making small UI changes**. Y
 
 ## What's in this repo
 
-It's a **static website**. No backend, no database, no framework. There's one small build step — Tailwind CSS is compiled locally into [css/styles.css](css/styles.css) and committed to the repo (GitHub Pages serves the file as-is).
+It's a **static website**. No backend, no database, no framework. There are two small build steps — Tailwind CSS compiles into `css/styles.css`, and news articles compile from Markdown into static HTML pages under `news/posts/<id>.html`. **Neither output is committed**; both are regenerated on every deploy by a GitHub Actions workflow that publishes the result to GitHub Pages.
 
-- HTML pages live at the repo root and in [students/](students/).
-- Styling uses **Tailwind CSS**, compiled from [src/main.css](src/main.css) using the theme in [tailwind.config.js](tailwind.config.js). Run `npm run build:css` after changing classes.
+What this means for you, the editor:
+
+- HTML pages live at the repo root and in [students/](students/); per-article pages are generated, not edited.
+- Styling uses **Tailwind CSS**, compiled from [src/main.css](src/main.css) using the theme in [tailwind.config.js](tailwind.config.js).
 - A few small JavaScript files load shared components (header/footer), render the schedule, and render the news feed.
 - Data that changes often (schedule, news articles) lives in JSON files so you don't have to touch HTML to update it.
+- **Pushing to `main` deploys** — every push triggers a build + Pages deploy. You can drop a Markdown file via the GitHub web UI and the article will appear on the site within a minute or two; no local build needed.
 
 ### Tech stack
 
-| Thing                  | What it is                                        | Where                                    |
-| ---------------------- | ------------------------------------------------- | ---------------------------------------- |
-| Markup                 | Plain HTML                                        | `*.html` files                           |
-| Styling source         | `@tailwind` directives + a few custom rules       | [src/main.css](src/main.css)             |
-| Styling output         | Compiled Tailwind CSS (committed, served as-is)   | [css/styles.css](css/styles.css)         |
-| Tailwind theme         | Custom colors / typography / spacing tokens       | [tailwind.config.js](tailwind.config.js) |
-| Header/footer          | Shared HTML snippets injected at runtime          | [components/](components/)               |
-| Schedule data          | One JSON file drives the home + schedule pages    | [data/schedule.json](data/schedule.json) |
-| News data              | One JSON file lists articles; bodies are Markdown | [news/](news/)                           |
-| Design tokens          | Colors, type scale, spacing — the visual system   | [DESIGN.md](DESIGN.md)                   |
-| Old site nav reference | Map of the previous nav structure for parity      | [nav-links.md](nav-links.md)             |
+| Thing                  | What it is                                                                     | Where                                                        |
+| ---------------------- | ------------------------------------------------------------------------------ | ------------------------------------------------------------ |
+| Markup                 | Plain HTML                                                                     | `*.html` files                                               |
+| Styling source         | `@tailwind` directives + a few custom rules                                    | [src/main.css](src/main.css)                                 |
+| Styling output         | Compiled Tailwind CSS (build artifact, gitignored, served from each deploy)    | `css/styles.css`                                             |
+| Tailwind theme         | Custom colors / typography / spacing tokens                                    | [tailwind.config.js](tailwind.config.js)                     |
+| Header/footer          | Shared HTML snippets injected at runtime                                       | [components/](components/)                                   |
+| Schedule data          | One JSON file drives the home + schedule pages                                 | [data/schedule.json](data/schedule.json)                     |
+| News data              | One JSON file lists articles; bodies are Markdown                              | [news/](news/)                                               |
+| Article build script   | Renders Markdown bodies + metadata into static HTML; regenerates `sitemap.xml` | [scripts/build-articles.mjs](scripts/build-articles.mjs)     |
+| Article output         | Per-article static HTML (build artifact, gitignored, served from each deploy)  | `news/posts/<id>.html`                                       |
+| Deploy workflow        | Builds on every push to `main` and deploys to GitHub Pages                     | [.github/workflows/deploy.yml](.github/workflows/deploy.yml) |
+| Design tokens          | Colors, type scale, spacing — the visual system                                | [DESIGN.md](DESIGN.md)                                       |
+| Old site nav reference | Map of the previous nav structure for parity                                   | [nav-links.md](nav-links.md)                                 |
 
 ---
 
@@ -38,7 +44,7 @@ It's a **static website**. No backend, no database, no framework. There's one sm
 ├── index.html                 ← homepage (entry point)
 ├── schedule.html             ← full schedule + fair day itinerary
 ├── news.html                 ← news feed listing
-├── article.html              ← single-article view (loads ?id=… from URL)
+├── article.html              ← legacy redirect: ?id=foo → news/posts/foo.html
 ├── judges.html               ← judges info
 ├── students.html             ← students landing
 ├── students/                 ← sub-pages linked from students.html
@@ -54,23 +60,31 @@ It's a **static website**. No backend, no database, no framework. There's one sm
 ├── src/
 │   └── main.css              ← CSS source: @tailwind directives + custom rules
 ├── css/
-│   └── styles.css            ← BUILD OUTPUT — generated by `npm run build:css`
+│   └── styles.css            ← BUILD ARTIFACT (gitignored) — generated by `npm run build:css`
 ├── tailwind.config.js        ← Tailwind theme (colors/fonts/spacing tokens) + content scanning
+├── scripts/
+│   └── build-articles.mjs    ← turns articles.json + Markdown → news/posts/<id>.html + sitemap.xml
 ├── js/
 │   ├── components.js         ← injects header/footer, marks active nav link
 │   ├── schedule.js           ← reads data/schedule.json, renders timelines
 │   └── news-feed.js          ← reads news/articles.json, renders ticker + feed
+├── sitemap.xml               ← BUILD ARTIFACT (gitignored) — regenerated by `npm run build:articles`
+├── .github/workflows/
+│   ├── deploy.yml            ← on push to main: build + deploy to GH Pages
+│   └── build-check.yml       ← on PRs: verify the build doesn't error
 ├── data/
 │   └── schedule.json         ← schedule single source of truth
 ├── news/
 │   ├── articles.json         ← list of articles (metadata + ordering)
-│   └── posts/<YYYY-MM>/<slug>/
-│       ├── <slug>.md         ← article body in Markdown
-│       └── *.jpg / *.png     ← images for this post live alongside it
+│   └── posts/
+│       ├── <id>.html         ← BUILD ARTIFACT (gitignored) — per-article static page
+│       └── <YYYY-MM>/<slug>/
+│           ├── <slug>.md     ← article body in Markdown
+│           └── *.jpg / *.png ← images for this post live alongside it
 ├── downloads/                ← static PDFs linked from pages
 ├── DESIGN.md                 ← design system reference
 ├── nav-links.md              ← old-site nav inventory
-├── package.json              ← dev tooling only (Prettier + git hook)
+├── package.json              ← dev tooling (Tailwind, marked, Prettier, husky, serve)
 ├── .prettierrc               ← formatting rules
 ├── .prettierignore           ← files Prettier shouldn't touch
 └── .husky/pre-commit         ← runs Prettier on staged files before commit
@@ -166,6 +180,15 @@ After saving, refresh the page. No code changes needed.
 
 3. **Drop any images** the article references into the **same folder as the post** (e.g., `news/posts/2024-03/judging-tips/cover.jpg`) and link them with a relative path from the Markdown file (`![Cover](cover.jpg)`).
 
+4. **Commit and push to `main`.** The deploy workflow rebuilds the site (renders your Markdown into `news/posts/<id>.html`, regenerates `sitemap.xml`, recompiles CSS) and publishes it to GitHub Pages. You don't run any build yourself — this works whether you commit from a terminal or upload the file through GitHub's web UI. Allow a minute or two for the workflow to finish.
+
+### Editing or removing an article
+
+- **Edit the body**: change the `.md` file, push, deploy. The article's HTML page is re-rendered with the new content.
+- **Edit metadata** (title, excerpt, image, category, date): change the entry in [news/articles.json](news/articles.json), push, deploy.
+- **Remove an article**: delete its entry from [news/articles.json](news/articles.json) (and optionally remove its folder under `news/posts/<YYYY-MM>/<slug>/` if you don't want the source around anymore). The next deploy won't emit the article's HTML and will drop its URL from the sitemap.
+- **Rename an article** (change its `id` in `articles.json`): the next deploy publishes it at the new URL. Old links die — only do this if you're sure no one is sharing the old URL.
+
 ### Edit page text
 
 For most pages, just open the `.html` file and edit the text between the tags. The HTML uses Tailwind utility classes (e.g., `class="text-primary font-headline-lg"`) — leave those alone unless you're intentionally restyling.
@@ -236,6 +259,7 @@ npm install
 This installs:
 
 - `tailwindcss` + plugins — the CSS compiler (`npm run build:css`, `npm run dev`).
+- `marked` — Markdown → HTML for the article build.
 - `serve` — the local dev server (`npm start`).
 - Prettier (formatter), husky (git hook manager), lint-staged (runs formatter on staged files).
 - Wires up the pre-commit hook automatically (via husky's `prepare` script).
@@ -244,29 +268,55 @@ You only need to do this **once per clone** of the repo.
 
 ---
 
-## Building the CSS
+## Build & deploy
 
-The `css/styles.css` file is a **build artifact** generated by Tailwind from [src/main.css](src/main.css) and [tailwind.config.js](tailwind.config.js). It's checked into the repo so GitHub Pages can serve it directly without running a build.
+Three files in this repo are **build artifacts** — they're regenerated from sources and **not committed to git** (they're in `.gitignore`):
+
+- `css/styles.css` — Tailwind output, from [src/main.css](src/main.css) + [tailwind.config.js](tailwind.config.js)
+- `news/posts/<id>.html` — one per article in [news/articles.json](news/articles.json), from the article's Markdown body via [scripts/build-articles.mjs](scripts/build-articles.mjs)
+- `sitemap.xml` — regenerated alongside articles so the URL list stays in sync
+
+### How deploys work
+
+[.github/workflows/deploy.yml](.github/workflows/deploy.yml) runs on every push to `main` and on manual `workflow_dispatch`. It:
+
+1. Checks out the repo (sources only — no build outputs to start with)
+2. Runs `npm ci` and `npm run build`
+3. Stages the static site (the just-built outputs + all the regular HTML/CSS/images/JSON) to a temporary `_site/` directory, excluding source-only stuff like `src/`, `scripts/`, `node_modules/`, etc.
+4. Uploads `_site/` as a Pages artifact and deploys via [actions/deploy-pages](https://github.com/actions/deploy-pages)
+
+Because the deploy is a clean, fresh build from sources every time, **the live site automatically picks up additions, edits, renames, and deletions** — including ones made through the GitHub web UI by contributors who never run anything locally.
+
+> **One-time repo setup:** in **Settings → Pages**, set **Source** to **GitHub Actions**. Without that, the workflow runs but nothing actually deploys. (If the site is currently configured as "Deploy from a branch", flip it.)
+
+[.github/workflows/build-check.yml](.github/workflows/build-check.yml) runs on pull requests to `main` and just verifies that `npm run build` doesn't error — so build problems are caught before merge, not at deploy time.
+
+### Building locally
 
 ```bash
-# Build once (used by `npm start`):
+# Build once + start the dev server (the usual local-preview command):
+npm start
+
+# CSS watch mode — rebuilds on every save while you tweak classes:
+npm run dev
+
+# Just the CSS:
 npm run build:css
 
-# Watch mode — rebuilds on every save:
-npm run dev
+# Just the articles + sitemap:
+npm run build:articles
+
+# Everything:
+npm run build
 ```
 
-**When to rebuild:**
+**When to rebuild locally:**
 
-- You added or removed a Tailwind class somewhere (HTML or a JS template literal).
-- You changed [tailwind.config.js](tailwind.config.js) (colors, fonts, spacing, plugins).
-- You edited [src/main.css](src/main.css).
+- Class change in any HTML / JS / build script → CSS rebuild (or use `npm run dev`).
+- New article, edited article, or change to [scripts/build-articles.mjs](scripts/build-articles.mjs) → article rebuild.
+- Change to [tailwind.config.js](tailwind.config.js) or [src/main.css](src/main.css) → CSS rebuild.
 
-**When NOT to edit `css/styles.css` directly** — your changes will be wiped on the next build. Edit [src/main.css](src/main.css) instead.
-
-**The pre-commit hook handles this for you.** Whenever you commit a change to an `.html` file, a `.js` file, [src/main.css](src/main.css), or [tailwind.config.js](tailwind.config.js), the hook reruns `npm run build:css` and stages the updated `css/styles.css` as part of the same commit. You don't need to remember to build — just edit and commit. The only ways to get out of sync are bypassing the hook with `--no-verify` or committing in a clone where you skipped `npm install`. Don't do those.
-
-A GitHub Actions check (`.github/workflows/css-up-to-date.yml`) also runs on every push/PR to `main` and fails if `css/styles.css` doesn't match what the build produces. So if you do somehow get out of sync, CI tells you before the deployed site does.
+You don't need to commit any of the build outputs — the deploy workflow does its own clean build. The pre-commit hook still runs `npm run build` locally as a verification step (so build errors are caught at commit time, not after push), but it doesn't stage anything because the outputs are gitignored.
 
 ---
 
@@ -333,8 +383,8 @@ Use sparingly. The hook exists so the repo stays consistent.
 1. Pull latest: `git pull`
 2. Make your edits.
 3. Open the site locally (`npm start`) and check it looks right — including the page on a narrow window (mobile layout). If you're iterating on classes, leave `npm run dev` running in another terminal.
-4. `git add <files>` and `git commit -m "short message"` — the hook formats your files and, if any class-relevant file is staged, rebuilds `css/styles.css` and includes it in the commit.
-5. `git push`.
+4. `git add <files>` and `git commit -m "short message"` — the hook formats your files and, if any class-affecting or article-affecting source is staged, runs `npm run build` locally to verify it doesn't error.
+5. `git push`. The deploy workflow rebuilds and publishes to GitHub Pages within a minute or two.
 
 If you're working on something bigger, make a branch (`git checkout -b your-change`) and open a pull request instead of pushing directly to `main`.
 

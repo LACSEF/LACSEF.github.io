@@ -1,0 +1,81 @@
+name: Build and deploy
+
+# Build the site (Tailwind CSS + article pages + sitemap) and deploy to GitHub
+# Pages on every push to main, including web-UI commits from non-technical
+# contributors who don't have a local build step. Each deploy is a fresh build
+# from sources, so adding, editing, renaming, or deleting an article in
+# news/articles.json + the .md body propagates automatically.
+#
+# REQUIRED ONE-TIME SETUP: in repo Settings → Pages, set "Source" to
+# "GitHub Actions". Without that, this workflow runs but nothing deploys.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one in-flight deployment at a time. Don't cancel an in-progress
+# run — let it finish so the deploy state is consistent.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build (CSS + article pages + sitemap)
+        run: npm run build
+
+      - name: Stage the deployable site to _site/
+        run: |
+          mkdir -p _site
+          rsync -a \
+            --exclude='node_modules/' \
+            --exclude='.git/' \
+            --exclude='.github/' \
+            --exclude='.husky/' \
+            --exclude='.vscode/' \
+            --exclude='_site/' \
+            --exclude='src/' \
+            --exclude='scripts/' \
+            --exclude='docs/' \
+            --exclude='tailwind.config.js' \
+            --exclude='package.json' \
+            --exclude='package-lock.json' \
+            --exclude='.prettierrc' \
+            --exclude='.prettierignore' \
+            --exclude='.gitignore' \
+            --exclude='*.md' \
+            ./ _site/
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

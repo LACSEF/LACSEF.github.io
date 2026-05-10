@@ -39,7 +39,7 @@ const escapeHtml = (s) =>
       })[c]
   );
 
-const articleHref = (id) => `article.html?id=${encodeURIComponent(id)}`;
+const articleHref = (id) => `news/posts/${encodeURIComponent(id)}.html`;
 
 async function loadArticles() {
   const res = await fetch("news/articles.json");
@@ -50,7 +50,7 @@ async function loadArticles() {
 
 function renderHeroSlide(article) {
   const style = categoryStyle(article.category);
-  const bgUrl = article.image || "images/lacsef-logo-solid.png";
+  const bgUrl = article.image || "images/lacsef-logo-solid.webp";
   return `
     <a href="${articleHref(article.id)}" class="hero-slide absolute inset-0 opacity-0 pointer-events-none transition-opacity duration-700">
       <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('${bgUrl.replace(/'/g, "\\'")}')"></div>
@@ -211,50 +211,11 @@ function renderCard(article) {
     `;
 }
 
-async function renderArticlePage(id) {
-  const articles = await loadArticles();
-  const article = articles.find((a) => a.id === id);
-  const root = document.getElementById("article-root");
-
-  if (!article) {
-    root.innerHTML = `
-            <p class="font-body-lg text-body-lg text-secondary mb-stack-md">Article not found.</p>
-            <a href="news.html" class="text-primary hover:underline font-label-md text-label-md">← Back to News</a>
-        `;
-    return;
-  }
-
-  document.title = `${article.title} - LA Science Fair`;
-  const style = categoryStyle(article.category);
-
-  const mdRes = await fetch(`news/posts/${article.file}.md`);
-  const md = await mdRes.text();
-  const bodyHtml = window.marked ? marked.parse(md) : `<pre>${escapeHtml(md)}</pre>`;
-
-  root.innerHTML = `
-        <a href="news.html" class="inline-flex items-center text-secondary hover:text-primary mb-stack-md font-label-md text-label-md">
-            <span class="material-symbols-outlined text-[18px] mr-1">arrow_back</span>
-            Back to News
-        </a>
-        <div class="mb-stack-md">
-            <span class="inline-block ${style.bg} ${style.text} px-3 py-1 rounded text-label-md font-label-md uppercase tracking-wide">${escapeHtml(article.category)}</span>
-        </div>
-        <h1 class="font-headline-xl text-headline-xl text-primary mb-stack-md">${escapeHtml(article.title)}</h1>
-        <div class="flex items-center text-secondary font-label-md text-label-md mb-stack-lg">
-            <span class="material-symbols-outlined text-[16px] mr-1">calendar_today</span>
-            <span>${formatDateLong(article.date)}</span>
-        </div>
-        ${article.image ? `<img class="w-full rounded-lg mb-stack-lg" src="${article.image}" alt="${escapeHtml(article.title)}"/>` : ""}
-        <div class="prose prose-lg max-w-none">${bodyHtml}</div>
-    `;
-}
-
 document.addEventListener("DOMContentLoaded", async () => {
   const ticker = document.getElementById("news-ticker");
   const featured = document.getElementById("news-featured");
   const grid = document.getElementById("news-grid");
   const heroCarousel = document.getElementById("hero-carousel");
-  const articleRoot = document.getElementById("article-root");
 
   if (ticker || featured || grid || heroCarousel) {
     const articles = await loadArticles();
@@ -303,11 +264,5 @@ document.addEventListener("DOMContentLoaded", async () => {
         });
       });
     }
-  }
-
-  if (articleRoot) {
-    const id = new URLSearchParams(location.search).get("id");
-    if (id) renderArticlePage(id);
-    else articleRoot.innerHTML = '<p class="text-secondary">No article specified.</p>';
   }
 });

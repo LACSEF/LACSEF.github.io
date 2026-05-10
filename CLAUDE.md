@@ -1,6 +1,13 @@
 # Claude context — LACSEF website
 
-Static HTML site for the LA County Science & Engineering Fair, deployed via GitHub Pages. No backend, no framework. There is one small build step: Tailwind compiles `src/main.css` → `css/styles.css`, which is committed to the repo so GH Pages can serve it directly. README.md has the full editor-facing guide; this file is the short version with the rules I should always follow.
+Static HTML site for the LA County Science & Engineering Fair, deployed to GitHub Pages by a GH Actions workflow on every push to `main`. No backend, no framework. Two small build steps:
+
+1. **CSS** — Tailwind compiles `src/main.css` → `css/styles.css`.
+2. **Articles + sitemap** — `scripts/build-articles.mjs` reads `news/articles.json` + each post's Markdown body and emits `news/posts/<id>.html` plus a fresh `sitemap.xml`.
+
+**Build outputs are not committed** — they're in `.gitignore` and regenerated from sources by [.github/workflows/deploy.yml](.github/workflows/deploy.yml) on every deploy. This is what lets non-technical contributors push a Markdown file via the GitHub web UI and have it appear on the live site without running anything locally — the deploy workflow does a clean build from sources, so adds / edits / renames / deletions all propagate automatically.
+
+README.md has the full editor-facing guide; this file is the short version with the rules I should always follow.
 
 ## Always use `uv` for Python
 
@@ -15,26 +22,39 @@ Do not call bare `python`, `python3`, `pip`, or `pipx`. If `uv` isn't available,
 ## Stack at a glance
 
 - Plain HTML at the repo root and in [students/](students/).
-- Tailwind compiled locally — theme tokens live in [tailwind.config.js](tailwind.config.js); CSS source (with `@tailwind` directives + custom rules) is [src/main.css](src/main.css); the build output is [css/styles.css](css/styles.css), committed so GH Pages serves it as-is.
-- Header/footer are shared snippets in [components/](components/), injected at runtime by [js/components.js](js/components.js).
+- Tailwind compiled — theme tokens live in [tailwind.config.js](tailwind.config.js); CSS source (with `@tailwind` directives + custom rules) is [src/main.css](src/main.css); the build emits `css/styles.css` (gitignored, regenerated on every deploy).
+- Header/footer are shared snippets in [components/](components/), injected at runtime by [js/components.js](js/components.js). The injection rewrites relative `<a href>` values against the site root, so nav links work from any depth (root, `students/`, `news/posts/`).
 - Schedule data: [data/schedule.json](data/schedule.json) drives both the home timeline and the schedule page.
-- News: metadata in [news/articles.json](news/articles.json), bodies as Markdown under `news/posts/<YYYY-MM>/<slug>/`.
+- News: metadata in [news/articles.json](news/articles.json), bodies as Markdown under `news/posts/<YYYY-MM>/<slug>/`. The build script renders each entry into a static `news/posts/<id>.html` page (canonical article URL, gitignored); legacy `article.html?id=<id>` links redirect to it.
 - Design system reference: [DESIGN.md](DESIGN.md). Keep it in sync with `tailwind.config.js`.
 
 ## Local dev
 
-- `npm start` builds the CSS once, then runs `serve` on the static files. Don't open files via `file://` — `fetch()` for header/footer/JSON will fail.
-- `npm run dev` runs Tailwind in `--watch` mode for iterating on classes. Pair it with `npm start` in a second terminal.
+- `npm start` runs `npm run build` (CSS + articles + sitemap) once, then `serve` on the static files. Don't open files via `file://` — `fetch()` for header/footer/JSON will fail.
+- `npm run dev` runs Tailwind in `--watch` mode for iterating on classes. Pair it with `npm start` in a second terminal. (Articles aren't watched — re-run `npm run build:articles` manually if you're editing Markdown.)
 - Python alternative (if asked): `uv run python -m http.server 8000`.
 
-## CSS build step (important)
+## Build & deploy (important)
 
-- Source of truth for styling: [tailwind.config.js](tailwind.config.js) + [src/main.css](src/main.css). The Tailwind CLI scans the `content` globs (HTML + JS) for class usage and generates [css/styles.css](css/styles.css).
-- Never edit `css/styles.css` by hand — it's a build artifact and gets overwritten on the next build. Custom rules go in `src/main.css`.
-- **The pre-commit hook auto-rebuilds CSS** when an HTML/JS file, `src/main.css`, or `tailwind.config.js` is staged, and it stages the regenerated `css/styles.css` into the same commit. So the committed CSS can never lag behind a class change as long as the hook runs (i.e., no `--no-verify`, and `npm install` has been run in this clone).
-- **CI backstop:** the [CSS up to date](.github/workflows/css-up-to-date.yml) workflow runs on every push/PR to `main`. It rebuilds the CSS in a clean environment and fails if the committed `css/styles.css` doesn't match. So even if the local hook is bypassed (`--no-verify`, fresh clone without `npm install`, or a web-UI edit), CI catches it before it reaches the deployed site.
-- For iterating without committing every time, run `npm run dev` (Tailwind in watch mode) so the browser sees changes on save.
-- `css/styles.css` is in `.prettierignore` (no point formatting compiled output).
+Three files in this repo are **build artifacts**, regenerated from sources by `npm run build`. They are **not committed** — they're in `.gitignore`:
+
+- `css/styles.css` ← `src/main.css` + `tailwind.config.js` + Tailwind class scan
+- `news/posts/<id>.html` (one per article) ← `news/articles.json` + the matching Markdown body, rendered through [scripts/build-articles.mjs](scripts/build-articles.mjs)
+- `sitemap.xml` ← regenerated alongside articles (the static-page list is hardcoded in `scripts/build-articles.mjs`; update it when adding a new top-level page)
+
+How deploys work:
+
+- [.github/workflows/deploy.yml](.github/workflows/deploy.yml) runs on every push to `main`. It does a clean checkout, `npm ci`, `npm run build`, stages the static site to a temporary `_site/` directory (excluding `src/`, `scripts/`, `node_modules/`, `*.md`, the build config files, etc.), uploads it as a Pages artifact, and deploys via [actions/deploy-pages](https://github.com/actions/deploy-pages).
+- Because each deploy is a fresh build from sources, adds / edits / renames / deletions in `news/articles.json` + the Markdown bodies all propagate to the live site without anyone running a build manually. This is the whole point — non-technical contributors can push via the GitHub web UI.
+- One-time repo setting: **Settings → Pages → Source: GitHub Actions**. If the repo is currently set to "Deploy from a branch", flip it. (If you find the deploy workflow runs but the site doesn't update, this is almost certainly why.)
+- [.github/workflows/build-check.yml](.github/workflows/build-check.yml) runs on PRs and just verifies `npm run build` succeeds, so build errors are caught before merge.
+
+Rules:
+
+- **Never edit a build output by hand.** They're gitignored, but if a stale local copy exists from a prior `npm run build`, it'll be wiped on the next build. Edit the source instead (`src/main.css`, the relevant Markdown, or the build script).
+- **The pre-commit hook runs `npm run build` locally** (without staging anything) when sources affecting outputs are staged, purely as fast-feedback so build errors surface at commit time instead of at deploy time. If you bypass with `--no-verify` and a build error sneaks through, the deploy workflow will fail loudly — not silently serve a stale site.
+- For iterating on classes without committing every time, run `npm run dev` (Tailwind in watch mode) so the browser sees changes on save.
+- All build outputs (`css/styles.css`, `news/posts/*.html`, `sitemap.xml`) are in `.prettierignore` — no point formatting compiled output.
 
 ## House rules when editing
 
@@ -42,13 +62,14 @@ Do not call bare `python`, `python3`, `pip`, or `pipx`. If `uv` isn't available,
 - HTML: lowercase tags, double-quoted attrs, Tailwind utility classes. Don't strip existing utility classes when changing copy.
 - Filenames: lowercase-with-hyphens (`how-to-participate.html`).
 - Nav: new top-level pages need a `data-page="<filename>.html"` link in [components/header.html](components/header.html) so the active-link logic works.
-- Design tokens: changing a color in `tailwind.config.js` means updating [DESIGN.md](DESIGN.md) too — and rebuilding CSS.
-- New HTML or JS files outside the existing `content` globs in `tailwind.config.js` won't get their classes compiled. Either keep new files inside the existing patterns (`./*.html`, `./components/**/*.html`, `./students/**/*.html`, `./js/**/*.js`) or update the globs.
+- Design tokens: changing a color in `tailwind.config.js` means updating [DESIGN.md](DESIGN.md) too. (No need to commit any rebuilt CSS — the deploy workflow does that.)
+- New HTML or JS files outside the existing `content` globs in `tailwind.config.js` won't get their classes compiled. Either keep new files inside the existing patterns (`./*.html`, `./components/**/*.html`, `./students/**/*.html`, `./js/**/*.js`, `./scripts/**/*.{js,mjs}`) or update the globs.
+- Adding a new top-level HTML page also means adding it to the `STATIC_PAGES` list at the top of [scripts/build-articles.mjs](scripts/build-articles.mjs) so the sitemap picks it up.
 - Don't touch `node_modules/`, `package-lock.json`, or `downloads/` files unless the task is specifically about them.
 
 ## Formatting & commits
 
-- Prettier runs via the husky pre-commit hook on staged `.html`/`.js`/`.json`/`.md` and `src/**/*.css`. Don't bypass with `--no-verify`.
+- Prettier runs via the husky pre-commit hook on staged `.html`/`.js`/`.mjs`/`.json`/`.md` and `src/**/*.css`. Don't bypass with `--no-verify`.
 - If formatting fails on commit, fix it and re-stage — don't `--amend` and don't skip the hook.
 - Rules in [.prettierrc](.prettierrc): 100-char lines, 2-space indent, double quotes, semicolons.
 

@@ -5,9 +5,19 @@ const _base = document.currentScript
 document.addEventListener("DOMContentLoaded", async () => {
   async function inject(id, url) {
     const res = await fetch(_base + "/" + url);
-    const html = await res.text();
+    const tmp = document.createElement("template");
+    tmp.innerHTML = await res.text();
+    // Resolve relative <a href> values against the site root so the injected
+    // header/footer nav works from any depth (e.g. /students/foo.html or
+    // /news/posts/bar.html). Skip absolute URLs, fragments, mailto/tel, etc.
+    tmp.content.querySelectorAll("a[href]").forEach((a) => {
+      const v = a.getAttribute("href");
+      if (v && !/^(?:[a-z][a-z0-9+.-]*:|#|\/\/|\/)/i.test(v)) {
+        a.setAttribute("href", _base + "/" + v);
+      }
+    });
     const el = document.getElementById(id);
-    if (el) el.outerHTML = html;
+    if (el) el.outerHTML = tmp.innerHTML;
   }
 
   await Promise.all([
