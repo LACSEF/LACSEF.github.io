@@ -127,8 +127,9 @@ function renderHeroCarousel(articles, container) {
   const prev = () => show(current - 1);
   const restart = () => {
     clearInterval(timer);
-    timer = setInterval(next, HERO_CAROUSEL_INTERVAL_MS);
+    if (!document.hidden) timer = setInterval(next, HERO_CAROUSEL_INTERVAL_MS);
   };
+  document.addEventListener("visibilitychange", restart);
 
   container.querySelector("#hero-next").addEventListener("click", (e) => {
     e.preventDefault();
