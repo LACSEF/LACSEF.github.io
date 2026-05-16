@@ -6,7 +6,8 @@
     "**/.husky": true,
     "**/.svn": true,
     "**/node_modules": true,
-    "**/Thumbs.db": true
+    "**/Thumbs.db": true,
+    "news/posts/*.html": true
   },
   "livePreview.defaultPreviewPath": "/index.html"
 }
