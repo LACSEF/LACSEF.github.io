@@ -178,7 +178,13 @@ After saving, refresh the page. No code changes needed.
    - `date` is `YYYY-MM-DD`. Articles are sorted newest-first by this field.
    - `featured: true` highlights the article on the homepage.
 
-3. **Drop any images** the article references into the **same folder as the post** (e.g., `news/posts/2024-03/judging-tips/cover.jpg`) and link them with a relative path from the Markdown file (`![Cover](cover.jpg)`).
+3. **Drop any images** the article references into the **same folder as the post** (e.g., `news/posts/2024-03/judging-tips/cover.jpg`) and reference them by filename in the Markdown:
+
+   ```markdown
+   ![Cover image](cover.jpg)
+   ```
+
+   The build script resolves the path against the article's own directory, so the image will load correctly on the live site.
 
 4. **Commit and push to `main`.** The deploy workflow rebuilds the site (renders your Markdown into `news/posts/<id>.html`, regenerates `sitemap.xml`, recompiles CSS) and publishes it to GitHub Pages. You don't run any build yourself — this works whether you commit from a terminal or upload the file through GitHub's web UI. Allow a minute or two for the workflow to finish.
 
@@ -217,7 +223,7 @@ Visual tokens are defined in two coordinated places:
 - [DESIGN.md](DESIGN.md) — the human-readable spec. Read this first to understand the system before changing values.
 - [tailwind.config.js](tailwind.config.js) — where those tokens become actual Tailwind classes (`bg-primary`, `text-on-surface`, etc.).
 
-If you change a color in `tailwind.config.js`, update DESIGN.md to match so they stay in sync. Then run `bun run build:css` and commit the regenerated `css/styles.css` along with your change.
+If you change a color in `tailwind.config.js`, update DESIGN.md to match so they stay in sync. The CSS is a build artifact — you don't need to commit it; the deploy workflow regenerates it on every push.
 
 For one-off custom styles that don't fit Tailwind, add them to [src/main.css](src/main.css) (not the compiled `css/styles.css` — that file is overwritten on every build).
 
@@ -378,7 +384,7 @@ Use sparingly. The hook exists so the repo stays consistent.
 
 - **HTML:** Tailwind utility classes, lowercase tags, double-quoted attributes. Prettier handles indentation.
 - **JS:** Plain ES modules, no framework. Keep it small and readable; if a file is starting to get complicated, that's a signal to ask before adding more.
-- **CSS:** Add to [css/styles.css](css/styles.css) only when Tailwind utilities can't express what you need.
+- **CSS:** Add to [src/main.css](src/main.css) when Tailwind utilities can't express what you need. Never edit `css/styles.css` — it's a build artifact that gets overwritten.
 - **Filenames:** Lowercase with hyphens (`how-to-participate.html`, not `HowToParticipate.html`).
 
 ---

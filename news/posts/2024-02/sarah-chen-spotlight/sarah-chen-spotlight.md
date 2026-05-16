@@ -1,6 +1,6 @@
 Last year's grand prize winner, Sarah Chen, took her low-cost water filtration project from the LA Fair to an international symposium in Geneva. We caught up with her to learn what's happened since.
 
-![Sarah Chen](news/posts/2024-02/sarah-chen-spotlight/sarah-chen.jpg)
+![Sarah Chen](sarah-chen.jpg)
 
 ## From the Fair to the World
 

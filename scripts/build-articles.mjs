@@ -202,22 +202,23 @@ const articles = JSON.parse(readFileSync(join(ROOT, "news/articles.json"), "utf8
 
 mkdirSync(join(ROOT, "news/posts"), { recursive: true });
 
-// Custom renderer: make image src paths root-absolute so they resolve correctly
-// from news/posts/<id>.html regardless of where in the tree the image lives.
-const renderer = new marked.Renderer();
-renderer.image = ({ href, title, text }) => {
-  if (href && !/^(https?:)?\//.test(href)) {
-    href = "/" + href;
-  }
-  const titleAttr = title ? ` title="${escapeHtml(title)}"` : "";
-  return `<img src="${escapeHtml(href)}" alt="${escapeHtml(text)}"${titleAttr}>`;
-};
-marked.use({ renderer });
-
 let totalBytes = 0;
 for (const article of articles) {
+  // Resolve relative image paths against the article's own directory so
+  // contributors can write ![Alt](image.jpg) for a co-located file and have
+  // it resolve correctly in the output at news/posts/<id>.html.
+  const articleDir = `news/posts/${dirname(article.file)}`;
+  const renderer = new marked.Renderer();
+  renderer.image = ({ href, title, text }) => {
+    if (href && !/^(https?:)?\//.test(href)) {
+      href = `/${articleDir}/${href}`;
+    }
+    const titleAttr = title ? ` title="${escapeHtml(title)}"` : "";
+    return `<img src="${escapeHtml(href)}" alt="${escapeHtml(text)}"${titleAttr}>`;
+  };
+
   const md = readFileSync(join(ROOT, "news/posts", `${article.file}.md`), "utf8");
-  const bodyHtml = marked.parse(md);
+  const bodyHtml = marked.parse(md, { renderer });
   const html = articlePage(article, bodyHtml);
   const outPath = join(ROOT, "news/posts", `${article.id}.html`);
   writeFileSync(outPath, html);
