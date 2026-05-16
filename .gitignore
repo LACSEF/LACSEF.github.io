@@ -149,6 +149,7 @@ TODO.md
 css/styles.css
 news/posts/*.html
 sitemap.xml
+images/gallery/thumbs/
 
 # Deploy staging directory used by the GH Actions deploy workflow.
 _site/

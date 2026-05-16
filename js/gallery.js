@@ -1,5 +1,9 @@
 const PAGE_SIZE = 12;
 
+function thumbSrc(src) {
+  return src.replace("images/gallery/", "images/gallery/thumbs/");
+}
+
 let allPhotos = [];
 let activeYear = "all";
 let currentPage = 1;
@@ -36,7 +40,7 @@ function renderGrid(gridContainer, paginationContainer) {
       class="gallery-item group relative overflow-hidden rounded-xl bg-surface-container-low aspect-[4/3] focus:outline-none focus-visible:ring-2 focus-visible:ring-primary">
       <img
         loading="lazy"
-        src="${p.src}"
+        src="${thumbSrc(p.src)}"
         alt="${p.alt}"
         class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
       <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-end">
