@@ -1,5 +1,6 @@
 const HERO_CAROUSEL_COUNT = 5;
 const HERO_CAROUSEL_INTERVAL_MS = 6000;
+const PAGE_SIZE = 8;
 
 const CATEGORY_STYLES = {
   Announcement: { bg: "bg-surface", text: "text-primary" },
@@ -212,11 +213,65 @@ function renderCard(article) {
     `;
 }
 
+function buildPageNumbers(current, total) {
+  // Always show first, last, and a window of 2 around current; use "..." for gaps
+  const pages = [];
+  for (let i = 1; i <= total; i++) {
+    if (i === 1 || i === total || (i >= current - 1 && i <= current + 1)) {
+      pages.push(i);
+    } else if (pages[pages.length - 1] !== "...") {
+      pages.push("...");
+    }
+  }
+  return pages;
+}
+
+function renderPagination(container, total, current, onPage) {
+  if (total <= 1) {
+    container.innerHTML = "";
+    return;
+  }
+
+  const ACTIVE =
+    "w-9 h-9 flex items-center justify-center rounded font-label-md text-label-md bg-primary text-on-primary";
+  const INACTIVE =
+    "w-9 h-9 flex items-center justify-center rounded font-label-md text-label-md text-primary hover:bg-surface-container-low transition-colors";
+  const ARROW =
+    "w-9 h-9 flex items-center justify-center rounded text-primary hover:bg-surface-container-low transition-colors";
+  const ARROW_DISABLED =
+    "w-9 h-9 flex items-center justify-center rounded text-outline cursor-not-allowed";
+
+  const pageNums = buildPageNumbers(current, total);
+
+  container.innerHTML = `
+    <nav aria-label="News pagination" class="flex items-center gap-1 justify-center pt-stack-lg border-t border-outline-variant mt-stack-md">
+      <button class="${current === 1 ? ARROW_DISABLED : ARROW}" data-page="${current - 1}" ${current === 1 ? "disabled" : ""} aria-label="Previous page">
+        <span class="material-symbols-outlined text-[20px]">arrow_back</span>
+      </button>
+      ${pageNums
+        .map((p) =>
+          p === "..."
+            ? `<span class="w-9 h-9 flex items-center justify-center text-secondary font-label-md text-label-md select-none">…</span>`
+            : `<button class="${p === current ? ACTIVE : INACTIVE}" data-page="${p}" aria-label="Page ${p}" ${p === current ? 'aria-current="page"' : ""}>${p}</button>`
+        )
+        .join("")}
+      <button class="${current === total ? ARROW_DISABLED : ARROW}" data-page="${current + 1}" ${current === total ? "disabled" : ""} aria-label="Next page">
+        <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+      </button>
+    </nav>
+  `;
+
+  container.querySelectorAll("button[data-page]:not([disabled])").forEach((btn) => {
+    btn.addEventListener("click", () => onPage(+btn.dataset.page));
+  });
+}
+
 document.addEventListener("DOMContentLoaded", async () => {
   const ticker = document.getElementById("news-ticker");
   const featured = document.getElementById("news-featured");
   const grid = document.getElementById("news-grid");
   const heroCarousel = document.getElementById("hero-carousel");
+  const pagination = document.getElementById("news-pagination");
 
   if (ticker || featured || grid || heroCarousel) {
     const articles = await loadArticles();
@@ -229,28 +284,44 @@ document.addEventListener("DOMContentLoaded", async () => {
       const INACTIVE_BTN =
         "w-full text-left font-label-md text-label-md text-secondary hover:text-primary hover:bg-surface-container-low px-3 py-2 rounded transition-colors";
 
-      function applyFilter(category) {
-        if (category === "all") {
-          if (featured) {
-            const f = articles.find((a) => a.featured) || articles[0];
-            renderFeatured(f, featured);
-            if (grid)
-              grid.innerHTML = articles
-                .filter((a) => a !== f)
-                .map(renderCard)
-                .join("");
-          } else if (grid) {
-            grid.innerHTML = articles.map(renderCard).join("");
-          }
-        } else {
-          if (featured) featured.innerHTML = "";
-          const matching = articles.filter((a) => a.category === category);
-          if (grid) {
-            grid.innerHTML = matching.length
-              ? matching.map(renderCard).join("")
-              : '<p class="md:col-span-2 text-secondary text-center py-stack-lg font-body-md text-body-md">No articles in this category yet.</p>';
+      // Pagination state
+      let pool = [];
+      let featuredArticle = null;
+
+      function goToPage(page) {
+        const totalPages = Math.ceil(pool.length / PAGE_SIZE);
+        const safePage = Math.max(1, Math.min(page, totalPages));
+        const start = (safePage - 1) * PAGE_SIZE;
+        const pageItems = pool.slice(start, start + PAGE_SIZE);
+
+        if (featured) {
+          if (featuredArticle && safePage === 1) {
+            renderFeatured(featuredArticle, featured);
+          } else {
+            featured.innerHTML = "";
           }
         }
+
+        if (grid) {
+          grid.innerHTML = pageItems.length
+            ? pageItems.map(renderCard).join("")
+            : '<p class="md:col-span-2 text-secondary text-center py-stack-lg font-body-md text-body-md">No articles in this category yet.</p>';
+        }
+
+        if (pagination) {
+          renderPagination(pagination, totalPages, safePage, goToPage);
+        }
+      }
+
+      function applyFilter(category) {
+        if (category === "all") {
+          featuredArticle = articles.find((a) => a.featured) || articles[0];
+          pool = articles.filter((a) => a !== featuredArticle);
+        } else {
+          featuredArticle = null;
+          pool = articles.filter((a) => a.category === category);
+        }
+        goToPage(1);
       }
 
       applyFilter("all");

@@ -40,5 +40,165 @@
     "category": "For Students",
     "date": "2024-02-15",
     "excerpt": "A step-by-step guide on writing a clear, concise, and compelling abstract for your project submission. Includes examples of strong abstracts from past fairs."
+  },
+  {
+    "id": "judges-orientation-2024",
+    "file": "2024-02/judges-orientation-2024/judges-orientation-2024",
+    "title": "Judge Orientation Session Scheduled for February 28",
+    "category": "For Judges",
+    "date": "2024-02-10",
+    "excerpt": "All judges are invited to attend a virtual orientation on February 28 covering the updated rubrics, conflict-of-interest policy, and day-of logistics."
+  },
+  {
+    "id": "project-safety-checklist",
+    "file": "2024-02/project-safety-checklist/project-safety-checklist",
+    "title": "Project Safety Checklist for Lab Research",
+    "category": "For Students",
+    "date": "2024-02-05",
+    "excerpt": "Before you run your first experiment, review our comprehensive safety checklist. Hazardous materials, animal studies, and human subjects research all require prior approval."
+  },
+  {
+    "id": "volunteer-call-2024",
+    "file": "2024-01/volunteer-call-2024/volunteer-call-2024",
+    "title": "Call for Fair Volunteers — Help Make the Magic Happen",
+    "category": "Announcement",
+    "date": "2024-01-30",
+    "excerpt": "We need 80+ volunteers on Fair Day to keep things running smoothly. Sign up to help with check-in, setup, awards, or student support — no science background required."
+  },
+  {
+    "id": "display-board-tips",
+    "file": "2024-01/display-board-tips/display-board-tips",
+    "title": "Display Board Design Tips from Past Winners",
+    "category": "For Students",
+    "date": "2024-01-25",
+    "excerpt": "Your display board is a visual argument for your research. We asked three grand-prize alumni what they wish they had known when designing theirs."
+  },
+  {
+    "id": "junior-division-preview",
+    "file": "2024-01/junior-division-preview/junior-division-preview",
+    "title": "Junior Division: What 6th–8th Graders Can Expect",
+    "category": "Announcement",
+    "date": "2024-01-20",
+    "excerpt": "New to the fair? The Junior Division offers a welcoming, low-pressure environment. Here is everything a middle-schooler needs to know before Fair Day."
+  },
+  {
+    "id": "interview-skills-workshop",
+    "file": "2024-01/interview-skills-workshop/interview-skills-workshop",
+    "title": "Interview Skills Workshop — January Recap",
+    "category": "For Students",
+    "date": "2024-01-15",
+    "excerpt": "Over 120 students attended our January workshop on presenting research to judges. Watch the recording and download the slide deck for practice questions."
+  },
+  {
+    "id": "mentor-program-launch",
+    "file": "2024-01/mentor-program-launch/mentor-program-launch",
+    "title": "Mentor Match Program Now Open for 2024",
+    "category": "Announcement",
+    "date": "2024-01-10",
+    "excerpt": "Students can now request a volunteer STEM mentor to help guide their projects. Mentors commit to two one-hour check-ins before Fair Day."
+  },
+  {
+    "id": "stem-scholarship-spotlight",
+    "file": "2024-01/stem-scholarship-spotlight/stem-scholarship-spotlight",
+    "title": "LACSEF Alumni Earns Full Caltech Scholarship",
+    "category": "Success Stories",
+    "date": "2024-01-05",
+    "excerpt": "Marcus Delgado, a 2022 Senior Division grand winner, credits his microbiology fair project with landing a full-ride scholarship to Caltech. He shares what the experience taught him."
+  },
+  {
+    "id": "category-descriptions-2024",
+    "file": "2023-12/category-descriptions-2024/category-descriptions-2024",
+    "title": "2024 Project Category Descriptions Released",
+    "category": "For Students",
+    "date": "2023-12-28",
+    "excerpt": "From behavioral science to environmental engineering, all 16 competition categories for 2024 are now described in detail. Make sure you choose the one that best fits your project."
+  },
+  {
+    "id": "teacher-stipend-program",
+    "file": "2023-12/teacher-stipend-program/teacher-stipend-program",
+    "title": "Teacher Stipend Program Returns for 2024",
+    "category": "For Teachers",
+    "date": "2023-12-20",
+    "excerpt": "Teachers who sponsor three or more student projects can apply for a $500 classroom stipend. Applications open January 15; funding is limited to 30 educators."
+  },
+  {
+    "id": "virtual-fair-recap-2023",
+    "file": "2023-12/virtual-fair-recap-2023/virtual-fair-recap-2023",
+    "title": "2023 Fair Recap: Highlights from 400 Projects",
+    "category": "Announcement",
+    "date": "2023-12-15",
+    "excerpt": "More than 400 projects competed this year across 16 categories. Relive the best moments, see the full award list, and read about the projects that earned state-fair bids."
+  },
+  {
+    "id": "data-science-category",
+    "file": "2023-12/data-science-category/data-science-category",
+    "title": "New Data Science & AI Category Added for 2024",
+    "category": "Announcement",
+    "date": "2023-12-10",
+    "excerpt": "Responding to growing student interest, LACSEF is adding a dedicated Data Science & Artificial Intelligence category for 2024. Projects must include an original dataset and analysis."
+  },
+  {
+    "id": "parent-faq",
+    "file": "2023-12/parent-faq/parent-faq",
+    "title": "Parent & Guardian FAQ",
+    "category": "For Students",
+    "date": "2023-12-05",
+    "excerpt": "How much can a parent help? What does it cost? Where do we go on Fair Day? We answer the 15 questions parents ask us most every year."
+  },
+  {
+    "id": "isef-qualifiers-2023",
+    "file": "2023-11/isef-qualifiers-2023/isef-qualifiers-2023",
+    "title": "Congratulations to Our 2023 ISEF Qualifiers",
+    "category": "Success Stories",
+    "date": "2023-11-28",
+    "excerpt": "Eight LACSEF students have earned spots at the 2024 International Science and Engineering Fair. Meet the qualifiers and learn about their winning projects."
+  },
+  {
+    "id": "lab-notebook-guide",
+    "file": "2023-11/lab-notebook-guide/lab-notebook-guide",
+    "title": "Keeping a Research Lab Notebook — A Student Guide",
+    "category": "For Students",
+    "date": "2023-11-20",
+    "excerpt": "Your lab notebook is the legal record of your original work. Learn what judges look for, what to write after every session, and how to handle mistakes the right way."
+  },
+  {
+    "id": "regional-partner-schools",
+    "file": "2023-11/regional-partner-schools/regional-partner-schools",
+    "title": "10 New Regional Partner Schools Announced",
+    "category": "Announcement",
+    "date": "2023-11-15",
+    "excerpt": "LACSEF has partnered with 10 additional schools across the Antelope Valley and South Bay regions, expanding fair access to underrepresented communities."
+  },
+  {
+    "id": "judge-recruitment-2024",
+    "file": "2023-11/judge-recruitment-2024/judge-recruitment-2024",
+    "title": "Recruiting STEM Professionals to Judge",
+    "category": "For Judges",
+    "date": "2023-11-10",
+    "excerpt": "We need 200 judges with STEM backgrounds for Fair Day 2024. It is a single morning commitment and one of the most rewarding ways to invest in the next generation of scientists."
+  },
+  {
+    "id": "research-ethics-primer",
+    "file": "2023-11/research-ethics-primer/research-ethics-primer",
+    "title": "Research Ethics: A Primer for Young Scientists",
+    "category": "For Students",
+    "date": "2023-11-05",
+    "excerpt": "Plagiarism, data fabrication, and conflicts of interest can disqualify a project. This guide explains the ethical standards every LACSEF student must follow."
+  },
+  {
+    "id": "grand-award-history",
+    "file": "2023-10/grand-award-history/grand-award-history",
+    "title": "50 Years of Grand Award Winners: A Look Back",
+    "category": "Success Stories",
+    "date": "2023-10-25",
+    "excerpt": "From a 1973 soil erosion study to last year's AI-assisted cancer screening model, trace how student research has mirrored the biggest scientific challenges of each era."
+  },
+  {
+    "id": "outreach-grant-2023",
+    "file": "2023-10/outreach-grant-2023/outreach-grant-2023",
+    "title": "LACSEF Receives $250,000 Outreach Grant",
+    "category": "Announcement",
+    "date": "2023-10-15",
+    "excerpt": "A new grant from the Herrera Family Foundation will fund science mentorship kits, transportation subsidies, and teacher training in underserved LA County schools through 2026."
   }
 ]
