@@ -202,6 +202,18 @@ const articles = JSON.parse(readFileSync(join(ROOT, "news/articles.json"), "utf8
 
 mkdirSync(join(ROOT, "news/posts"), { recursive: true });
 
+// Custom renderer: make image src paths root-absolute so they resolve correctly
+// from news/posts/<id>.html regardless of where in the tree the image lives.
+const renderer = new marked.Renderer();
+renderer.image = ({ href, title, text }) => {
+  if (href && !/^(https?:)?\//.test(href)) {
+    href = "/" + href;
+  }
+  const titleAttr = title ? ` title="${escapeHtml(title)}"` : "";
+  return `<img src="${escapeHtml(href)}" alt="${escapeHtml(text)}"${titleAttr}>`;
+};
+marked.use({ renderer });
+
 let totalBytes = 0;
 for (const article of articles) {
   const md = readFileSync(join(ROOT, "news/posts", `${article.file}.md`), "utf8");
