@@ -5,6 +5,7 @@
     "": {
       "name": "lacsef-website",
       "dependencies": {
+        "baseline-browser-mapping": "^2.10.30",
         "browserslist": "^4.28.2",
         "caniuse-lite": "^1.0.30001793",
       },
